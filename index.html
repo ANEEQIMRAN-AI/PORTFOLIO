@@ -248,43 +248,95 @@ body.ready h1 .ltr{opacity:1;transform:none}
 .xmore-btn.active svg{transform:rotate(45deg)}
 
 /* ============ PROJECTS ============ */
-.proj{position:relative;border-radius:calc(var(--r) + 4px);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));border:1px solid var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:38px;margin-bottom:26px;overflow:hidden;transition:transform .45s var(--ease),border-color .45s,box-shadow .45s}
-.proj::before{content:'';position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:conic-gradient(from var(--ang),transparent 0%,rgba(88,166,255,.85) 9%,transparent 22%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .45s;animation:spin 3.6s linear infinite;pointer-events:none}
-.proj:hover{transform:translateY(-7px) scale(1.004);border-color:rgba(88,166,255,.28);box-shadow:0 40px 90px -40px rgba(0,0,0,.85)}
-.proj:hover::before{opacity:1}
-.proj-g{position:absolute;top:-14px;right:14px;font-size:clamp(4.5rem,10vw,7.5rem);font-weight:600;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.055);letter-spacing:-.04em;user-select:none;pointer-events:none;transition:.5s}
-.proj:hover .proj-g{-webkit-text-stroke-color:rgba(88,166,255,.18)}
-.pj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:14px;position:relative}
-.pj-title{font-size:clamp(1.25rem,3vw,1.7rem);font-weight:600;letter-spacing:-.015em;max-width:620px}
-.pj-tag{color:var(--muted);margin-top:5px;font-size:.95rem}
-.pj-badge{flex:none;font-size:.64rem;letter-spacing:.1em;padding:8px 13px;border-radius:999px;border:1px solid var(--line2);color:var(--muted);background:var(--panel)}
-.pj-badge.hot{color:var(--acc);border-color:rgba(88,166,255,.5);background:var(--acc-dim);box-shadow:0 0 22px -6px rgba(88,166,255,.45)}
-.pj-list{list-style:none;margin:6px 0 20px;max-width:820px;position:relative}
-.pj-list li{position:relative;padding-left:24px;color:var(--muted);font-size:.94rem;margin-bottom:9px}
-.pj-list li::before{content:'';position:absolute;left:2px;top:.62em;width:9px;height:2px;background:var(--acc)}
-.pj-tech{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.pj-actions{display:flex;gap:12px;flex-wrap:wrap}
-.cs-toggle svg{transition:transform .45s var(--ease)}
-.cs-toggle.open svg{transform:rotate(180deg)}
-.ic-wa{width:15px;height:15px;fill:var(--wa)}
-.wa-disc:hover .ic-wa{fill:#fff}
-.wa-disc:hover{border-color:rgba(37,211,102,.6);background:rgba(37,211,102,.1);box-shadow:0 10px 30px -12px rgba(37,211,102,.4)}
-.case{display:grid;grid-template-rows:0fr;transition:grid-template-rows .8s var(--ease)}
-.case.open{grid-template-rows:1fr}
-.case>div{overflow:hidden}
-.case-in{padding-top:34px;margin-top:26px;border-top:1px dashed var(--line2)}
-.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
-.cs-block h4{font-family:var(--fm);font-size:.62rem;letter-spacing:.22em;color:var(--acc);margin-bottom:11px}
-.cs-block{border-radius:14px;background:rgba(255,255,255,.022);border:1px solid var(--line);padding:20px;margin-bottom:18px}
-.cs-block p{color:var(--muted);font-size:.92rem}
-.cs-steps{list-style:none;counter-reset:st}
-.cs-steps li{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.05);color:var(--muted);font-size:.92rem;counter-increment:st}
-.cs-steps li::before{content:'0' counter(st);font-family:var(--fm);font-size:.66rem;color:var(--acc);flex:none;padding-top:4px;letter-spacing:.1em}
-.cs-res{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
-.res-i{display:flex;align-items:center;gap:11px;padding:14px;border-radius:12px;background:var(--acc-dim);border:1px solid rgba(88,166,255,.28);font-size:.86rem;color:var(--text)}
-.res-i svg{width:16px;height:16px;color:var(--acc);flex:none}
-.res-i:hover{transform:translateY(-2px);box-shadow:0 10px 26px -12px rgba(88,166,255,.5)}
-@media(max-width:760px){.cs-grid{grid-template-columns:1fr}.proj{padding:26px 20px}}
+.feat-h{font-size:1.1rem;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.feat-h svg{width:17px;height:17px;color:var(--acc)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pj-tools{display:flex;gap:14px 18px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:10px 0 12px}
+.pj-filters{display:flex;gap:8px;flex-wrap:wrap}
+.pf{font:500 .84rem var(--fd);color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:9px 15px;border-radius:999px;cursor:pointer;transition:.3s;min-height:40px}
+.pf b{font:400 .68rem var(--fm);color:var(--dim);margin-left:7px;transition:.3s}
+.pf:hover{color:var(--text);border-color:rgba(88,166,255,.5);transform:translateY(-2px)}
+.pf[aria-pressed="true"]{color:#051021;background:var(--acc);border-color:var(--acc)}
+.pf[aria-pressed="true"] b{color:#051021}
+.pj-search{position:relative;flex:1 1 230px;max-width:330px}
+.pj-search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--dim);pointer-events:none}
+.pj-search input{width:100%;min-height:44px;padding:11px 14px 11px 40px;border-radius:12px;background:var(--panel);border:1px solid var(--line2);color:var(--text);font:inherit;font-size:.9rem;transition:.3s}
+.pj-search input:focus{outline:none;border-color:rgba(88,166,255,.7);box-shadow:0 0 0 3px var(--acc-dim)}
+.pj-count{font-size:.7rem;color:var(--dim);letter-spacing:.1em;margin:0 0 18px;min-height:1.2em}
+.pj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+.pj-grid.swap>.pc{animation:pcin .55s var(--ease) both;animation-delay:calc(var(--i,0)*45ms)}
+@keyframes pcin{from{opacity:0;transform:translateY(22px) scale(.985)}to{opacity:1;transform:none}}
+.pj-empty{padding:40px 20px;text-align:center;color:var(--muted);border:1px dashed var(--line2);border-radius:var(--r)}
+.pj-empty .btn{margin-top:16px}
+.pc{position:relative;display:flex;flex-direction:column;text-align:left;font:inherit;color:inherit;cursor:pointer;padding:0;overflow:hidden;border-radius:var(--r);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.014));border:1px solid var(--line);transition:transform .45s var(--ease),border-color .4s,box-shadow .4s}
+.pc:hover,.pc:focus-visible{transform:translateY(-6px);border-color:hsl(var(--h) 90% 65%/.5);box-shadow:0 28px 60px -30px hsl(var(--h) 90% 55%/.45)}
+.cover{position:relative;display:grid;place-items:center;height:152px;overflow:hidden;background:radial-gradient(circle at 18% 12%,hsl(var(--h) 90% 60%/.34),transparent 56%),radial-gradient(circle at 88% 95%,hsl(calc(var(--h) + 45) 90% 55%/.24),transparent 52%),linear-gradient(160deg,#0c131d,#070a10)}
+.cover::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:26px 26px;-webkit-mask-image:radial-gradient(circle,#000 20%,transparent 75%);mask-image:radial-gradient(circle,#000 20%,transparent 75%)}
+.cover>svg{position:relative;width:46px;height:46px;stroke-width:1.4;color:hsl(var(--h) 95% 72%);filter:drop-shadow(0 0 16px hsl(var(--h) 95% 60%/.7));transition:transform .6s var(--ease)}
+.pc:hover .cover>svg{transform:scale(1.14) rotate(-4deg)}
+.cover .cv-cat{position:absolute;left:14px;bottom:12px;font:500 .62rem var(--fm);letter-spacing:.08em;color:hsl(var(--h) 95% 80%);padding:5px 10px;border-radius:999px;background:rgba(5,7,13,.6);border:1px solid hsl(var(--h) 90% 65%/.35)}
+.cover .cv-n{position:absolute;right:14px;top:10px;font:600 1.5rem var(--fm);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.16)}
+.pc-body{display:flex;flex-direction:column;gap:8px;padding:20px 20px 22px;flex:1}
+.pc-title{font-size:1.06rem;font-weight:600;line-height:1.32;letter-spacing:-.01em}
+.pc-tag{color:var(--muted);font-size:.88rem}
+.pc-tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pc-tech span{font:.66rem var(--fm);color:var(--muted);padding:4px 9px;border-radius:999px;border:1px solid var(--line);background:var(--panel)}
+.pc-go{margin-top:auto;padding-top:12px;display:inline-flex;align-items:center;gap:7px;font:500 .8rem var(--fd);color:var(--acc)}
+.pc-go svg{width:15px;height:15px;transition:transform .35s var(--ease)}
+.pc:hover .pc-go svg{transform:translateX(5px)}
+.pc-big .cover{height:200px}.pc-big .cover>svg{width:58px;height:58px}
+.pc-big .pc-title{font-size:1.22rem}
+.pc-flag{position:absolute;top:12px;left:14px;z-index:2;font:500 .6rem var(--fm);letter-spacing:.12em;color:var(--acc);padding:5px 10px;border-radius:999px;border:1px solid rgba(88,166,255,.5);background:rgba(5,7,13,.7)}
+@media(max-width:980px){.feat-grid{grid-template-columns:1fr}.feat-grid .pc{flex-direction:row}.feat-grid .cover{height:auto;width:38%;min-height:190px;flex:none}}
+@media(max-width:620px){.feat-grid .pc{flex-direction:column}.feat-grid .cover{width:100%;height:170px;min-height:0}.pj-search{max-width:none}}
+
+/* project detail modal */
+.pmodal{position:fixed;inset:0;z-index:320;display:grid;place-items:center;padding:20px;visibility:hidden;opacity:0;transition:opacity .35s,visibility .35s}
+.pmodal.open{visibility:visible;opacity:1}
+.pm-back{position:absolute;inset:0;background:rgba(3,5,9,.8);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.pm-box{position:relative;width:min(980px,100%);max-height:calc(100vh - 40px);max-height:calc(100dvh - 40px);overflow:auto;overscroll-behavior:contain;border-radius:22px;background:#0a0f17;border:1px solid var(--line2);box-shadow:0 50px 120px -30px #000;transform:translateY(28px) scale(.98);transition:transform .5s var(--ease)}
+.pmodal.open .pm-box{transform:none}
+.pm-head{position:relative;padding:34px 34px 26px;overflow:hidden;background:radial-gradient(circle at 12% 0,hsl(var(--h) 90% 60%/.3),transparent 55%),radial-gradient(circle at 100% 100%,hsl(calc(var(--h) + 45) 90% 55%/.2),transparent 50%),#0b111a;border-bottom:1px solid var(--line)}
+.pm-head::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:30px 30px;-webkit-mask-image:linear-gradient(90deg,transparent,#000);mask-image:linear-gradient(90deg,transparent,#000);pointer-events:none}
+.pm-head>*{position:relative}
+.pm-close{position:absolute;top:14px;right:14px;z-index:3;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;cursor:pointer;background:rgba(5,7,13,.7);border:1px solid var(--line2);color:var(--text);transition:.3s}
+.pm-close:hover{border-color:var(--acc);color:var(--acc);transform:rotate(90deg)}
+.pm-close svg{width:18px;height:18px}
+.pm-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;padding-right:50px}
+.pm-pill{font:500 .66rem var(--fm);letter-spacing:.06em;color:hsl(var(--h) 95% 80%);padding:6px 11px;border-radius:999px;border:1px solid hsl(var(--h) 90% 65%/.4);background:rgba(5,7,13,.55)}
+.pm-head h3{font-size:clamp(1.45rem,3.6vw,2.2rem);font-weight:600;letter-spacing:-.02em;line-height:1.15;max-width:760px}
+.pm-head p{color:var(--muted);margin-top:8px;font-size:1.02rem}
+.pm-body{padding:28px 34px 34px;display:grid;gap:18px}
+.pm-two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pm-sec{border-radius:14px;background:rgba(255,255,255,.022);border:1px solid var(--line);padding:20px;min-width:0}
+.pm-sec h4{font:500 .66rem var(--fm);letter-spacing:.2em;color:var(--acc);margin-bottom:12px}
+.pm-sec p{color:var(--muted);font-size:.94rem}
+.pm-list{list-style:none}
+.pm-list li{position:relative;padding-left:24px;color:var(--muted);font-size:.93rem;margin-bottom:9px}
+.pm-list li:last-child{margin-bottom:0}
+.pm-list li::before{content:'';position:absolute;left:2px;top:.66em;width:9px;height:2px;background:var(--acc)}
+.pm-metric{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:12px;background:var(--acc-dim);border:1px solid rgba(88,166,255,.3);color:var(--text);font-size:.9rem;margin-top:14px}
+.pm-metric svg{width:17px;height:17px;color:var(--acc);flex:none;margin-top:2px}
+.pm-foot{font-size:.78rem;color:var(--dim)}
+.wf-list{display:none;list-style:none;counter-reset:wf}
+.wf-list li{position:relative;display:flex;flex-direction:column;padding:2px 0 16px 38px;counter-increment:wf}
+.wf-list li::before{content:counter(wf);position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:500 .7rem var(--fm);color:var(--acc);background:var(--acc-dim);border:1px solid rgba(88,166,255,.4)}
+.wf-list li::after{content:'';position:absolute;left:12.5px;top:30px;bottom:4px;width:1px;background:var(--line2)}
+.wf-list li:last-child::after{display:none}
+.wf-list b{font-weight:600;font-size:.95rem}
+.wf-list span{font:.7rem var(--fm);color:var(--muted)}
+.pm-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pm-actions .sp{flex:1}
+.pm-nav{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:760px){
+  .pm-two{grid-template-columns:1fr}
+  .pmodal{padding:0;place-items:end center}
+  .pm-box{max-height:94vh;max-height:94dvh;border-radius:22px 22px 0 0}
+  .pm-head{padding:28px 20px 22px}.pm-body{padding:20px 16px 26px}
+  .pm-box .dg{display:none}.wf-list{display:block}
+}
+body.modal-open{overflow:hidden}
+@media(prefers-reduced-motion:reduce){.pj-grid.swap>.pc,.pm-box,.pmodal{animation:none;transition:none}}
 
 /* flow diagrams */
 .dg{border-radius:12px;background:rgba(4,6,10,.5);border:1px solid var(--line);padding:14px}
@@ -494,6 +546,111 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:40px}
   .rv,.stg>*,h1 .ltr{opacity:1!important;transform:none!important}
   .mq-track{animation:none}
 }
+
+/* ============ MEDIA, ICONS, CHAT CLOSE, EXTRA MOTION ============ */
+svg.lucide{flex:none}
+.pf{display:inline-flex;align-items:center;gap:8px}
+.pf svg{width:15px;height:15px}
+/* project cards: images, tilt, spotlight */
+.pj-grid.swap>.pc{animation:none}
+.feat-grid>.pc,.pj-grid>.pc{transition:transform .5s var(--ease),border-color .4s,box-shadow .4s;transition-delay:0s}
+.feat-grid.on>.pc,.pj-grid.on>.pc{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));animation:pcin .7s var(--ease) backwards;animation-delay:calc(var(--i,0)*60ms)}
+.pc:hover,.pc:focus-visible{--ty:-6px;transform:none}
+.pc.tilting{transition:transform .12s linear,border-color .4s,box-shadow .4s}
+.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);filter:blur(10px);transition:opacity .9s var(--ease),transform 1.4s var(--ease),filter 1s var(--ease)}
+.cover img.ld{opacity:1;transform:scale(1);filter:none}
+.pc:hover .cover img.ld{transform:scale(1.08)}
+.cover.has-img::before{display:none}
+.cover.has-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,13,.05) 30%,rgba(5,7,13,.82));pointer-events:none}
+.cover .cv-big{position:relative;width:46px;height:46px;stroke-width:1.4;color:hsl(var(--h) 95% 72%);filter:drop-shadow(0 0 16px hsl(var(--h) 95% 60%/.7));transition:transform .6s var(--ease)}
+.cover.has-img .cv-big{display:none}
+.pc:hover .cover .cv-big{transform:scale(1.14) rotate(-4deg)}
+.cover .cv-ic{display:none;position:absolute;left:12px;top:12px;z-index:2;width:36px;height:36px;border-radius:11px;place-items:center;color:hsl(var(--h) 95% 78%);background:rgba(5,7,13,.62);border:1px solid hsl(var(--h) 90% 65%/.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.cover .cv-ic svg{width:18px;height:18px}
+.cover.has-img .cv-ic{display:grid}
+.cover .cv-cat{z-index:2}.cover .cv-n{z-index:2}
+.pc-big .cover .cv-big{width:58px;height:58px}
+.pc-flag{left:auto;right:14px}
+.pc-big .cover .cv-ic{left:14px}
+.pc-big .cv-n{display:none}
+.pc::after,.sk-card::after,.xcard::after,.lab-panel::after,.edu-card::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),rgba(88,166,255,.15),transparent 62%)}
+.pc:hover::after,.sk-card:hover::after,.xcard:hover::after,.lab-panel:hover::after,.edu-card:hover::after{opacity:1}
+.xcard,.lab-panel{position:relative}
+/* modal */
+.pm-box{overflow:hidden;max-height:none;display:flex;flex-direction:column}
+.pm-scroll{overflow:auto;overscroll-behavior:contain;max-height:calc(100vh - 40px);max-height:calc(100dvh - 40px);outline:none}
+.pm-close{position:absolute;top:14px;right:14px}
+.pm-hero{position:relative;display:block;width:100%;height:clamp(210px,36vw,360px);overflow:hidden;background:#070a10;border:0;padding:0;cursor:zoom-in}
+.pm-hero .bg{position:absolute;inset:-40px;width:calc(100% + 80px);height:calc(100% + 80px);object-fit:cover;filter:blur(30px) saturate(1.35);opacity:.6;transform:translateY(calc(var(--py,0px)*.45))}
+.pm-hero .fg{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;transform:translateY(calc(var(--py,0px)*.22));transition:transform .5s var(--ease)}
+.pm-hero:hover .fg{transform:translateY(calc(var(--py,0px)*.22)) scale(1.025)}
+.pm-hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:90px;z-index:2;background:linear-gradient(180deg,transparent,#0b111a);pointer-events:none}
+.pm-hero .zh{position:absolute;right:14px;bottom:14px;z-index:3;display:inline-flex;align-items:center;gap:7px;font:500 .66rem var(--fm);letter-spacing:.08em;color:var(--text);padding:7px 12px;border-radius:999px;background:rgba(5,7,13,.7);border:1px solid var(--line2)}
+.pm-hero .zh svg{width:13px;height:13px}
+.pm-hero.gen{display:grid;place-items:center;cursor:default;background:radial-gradient(circle at 18% 12%,hsl(var(--h) 90% 60%/.34),transparent 56%),radial-gradient(circle at 88% 95%,hsl(calc(var(--h) + 45) 90% 55%/.24),transparent 52%),linear-gradient(160deg,#0c131d,#070a10)}
+.pm-hero.gen>svg{position:relative;z-index:1;width:84px;height:84px;stroke-width:1.2;color:hsl(var(--h) 95% 72%);filter:drop-shadow(0 0 24px hsl(var(--h) 95% 60%/.7))}
+.pm-head{padding-top:26px}
+@media(max-width:760px){.pm-scroll{max-height:94vh;max-height:94dvh}.pm-hero{height:clamp(180px,52vw,260px)}}
+.pm-scroll.enter .pm-hero .fg,.pm-scroll.enter .pm-hero.gen>svg{animation:heroin .9s var(--ease) both}
+.pm-scroll.enter .pm-pills>*{animation:pcin .6s var(--ease) both;animation-delay:calc(.12s + var(--k,0)*60ms)}
+.pm-scroll.enter .pm-head h3{animation:pcin .7s var(--ease) .2s both}
+.pm-scroll.enter .pm-head p{animation:pcin .7s var(--ease) .3s both}
+.pm-scroll.enter .pm-body>*{animation:pcin .7s var(--ease) both;animation-delay:calc(.28s + var(--k,0)*70ms)}
+.pm-scroll.enter .pm-list li{animation:slidel .6s var(--ease) both;animation-delay:calc(.5s + var(--k,0)*70ms)}
+@keyframes heroin{from{opacity:0;transform:scale(1.12)}to{opacity:1;transform:none}}
+@keyframes slidel{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:340;display:grid;place-items:center;padding:3vmin;background:rgba(3,5,9,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;cursor:zoom-out}
+#lb.open{opacity:1;visibility:visible}
+#lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px;box-shadow:0 40px 120px #000;transform:scale(.92);transition:transform .5s var(--ease)}
+#lb.open img{transform:none}
+#lb button{position:absolute;top:16px;right:16px;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;cursor:pointer;background:rgba(5,7,13,.8);border:1px solid var(--line2);color:var(--text)}
+#lb button svg{width:20px;height:20px}
+/* chat close: visible, labelled, and the launcher doubles as a close toggle */
+.cbtn#chat-close{width:auto;padding:0 12px 0 10px;gap:6px;display:inline-flex;align-items:center;height:36px;color:var(--text);border-color:var(--line2);background:var(--panel);font:500 .78rem var(--fd)}
+.cbtn#chat-close svg{width:16px;height:16px}
+.cbtn#chat-close:hover{border-color:rgba(255,120,120,.6);color:#ff9a9a;background:rgba(255,90,90,.1)}
+.cbtn{width:36px;height:36px}
+.fab-ai .f-c{display:none}
+.fab-ai.is-open .f-o{display:none}.fab-ai.is-open .f-c{display:block}
+.fab-ai.is-open{background:#1a2230;color:var(--text);border:1px solid var(--line2)}
+.fab-ai.is-open::before{animation:none}
+@media(max-width:640px){.chatbot.open~.fab-ai{opacity:0;pointer-events:none}}
+/* motion */
+.grad{background-size:220% 100%;animation:shim 6s ease-in-out infinite}
+@keyframes shim{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0;opacity:.5;will-change:transform}
+.orb.o1{width:380px;height:380px;left:-90px;top:12%;background:rgba(88,166,255,.32);animation:orb1 16s ease-in-out infinite}
+.orb.o2{width:320px;height:320px;right:-60px;top:36%;background:rgba(57,208,255,.22);animation:orb2 19s ease-in-out infinite}
+.orb.o3{width:260px;height:260px;left:42%;bottom:-60px;background:rgba(150,110,255,.2);animation:orb1 22s ease-in-out infinite reverse}
+@keyframes orb1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(70px,-50px) scale(1.15)}}
+@keyframes orb2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-80px,60px) scale(.9)}}
+.js-fx .sec-head.rv h2{clip-path:inset(0 100% 0 0);transition:clip-path 1.1s var(--ease) .15s}
+.js-fx .sec-head.rv.on h2{clip-path:inset(0 0 -.2em 0)}
+.js-fx .kicker::before{transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease) .1s}
+.js-fx .rv.on .kicker::before{transform:none}
+.js-fx .tl-item.rv{transform:translateX(-46px)}
+.js-fx .tl-item.rv.on{transform:none}
+.js-fx #skills-grid>*{transform:translateY(30px) scale(.93)}
+.js-fx #skills-grid.on>*{transform:none}
+.js-fx #certs-grid>*{transform:perspective(700px) rotateX(-35deg) translateY(24px);transform-origin:50% 0}
+.js-fx #certs-grid.on>*{transform:none}
+.js-fx .sk-items .tbadge{opacity:0;transform:scale(.6)}
+.js-fx #skills-grid.on .tbadge{animation:pop .5s var(--ease) both;animation-delay:calc(.35s + var(--i,0)*70ms + var(--bi,0)*40ms)}
+@keyframes pop{from{opacity:0;transform:scale(.6) translateY(8px)}to{opacity:1;transform:none}}
+.js-fx #xp-wrap::before{transform:scaleY(0);transform-origin:top;transition:transform 1.8s var(--ease)}
+.js-fx #xp-wrap.drawn::before{transform:none}
+.btn .rip{position:absolute;border-radius:50%;background:rgba(255,255,255,.4);transform:scale(0);animation:rip .65s ease-out forwards;pointer-events:none}
+@keyframes rip{to{transform:scale(1);opacity:0}}
+.marquee.rev .mq-track{animation-direction:reverse;animation-duration:42s}
+.marquee.rev .mq b{color:var(--dim)}
+#curtain{position:fixed;inset:0;z-index:310;pointer-events:none;transform:translateY(101%);background:linear-gradient(135deg,#0b1424,#05070d)}
+#curtain::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc2));box-shadow:0 0 30px var(--acc)}
+#curtain.in{transform:none;transition:transform .55s cubic-bezier(.76,0,.24,1)}
+#curtain.out{transform:translateY(-101%);transition:transform .55s cubic-bezier(.76,0,.24,1)}
+.pf,.tbadge,.focus-i,.cert{transition-timing-function:var(--ease)}
+@media(prefers-reduced-motion:reduce){.orb,.grad{animation:none}.js-fx .sec-head.rv h2{clip-path:none}#curtain{display:none}}
+.pc:has(.pc-flag){border-color:rgba(88,166,255,.3);box-shadow:0 22px 60px -38px rgba(88,166,255,.55)}
 </style>
 </head>
 <body>
@@ -552,7 +709,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:40px}
     <p class="eyebrow mono rv">[ <b>AI ENGINEER</b> — LAHORE, PAKISTAN ]</p>
     <h1 class="hero-name" id="hero-name">Aneeq Imran</h1>
     <div class="hero-role rv" style="--d:.15s"><span><span class="grad">AI</span> Engineer</span><span class="sep">/</span><span class="rot-wrap"><span id="rot">Generative AI</span></span></div>
-    <p class="hero-sum rv" style="--d:.25s">I design and engineer intelligent systems — generative AI, agentic workflows and RAG pipelines — that turn real business problems into automated, production-ready products.</p>
+    <p class="hero-sum rv" style="--d:.25s">AI Engineer specializing in Generative AI, Agentic AI, Machine Learning and Computer Vision. I build LLM-powered applications, multi-agent systems, RAG pipelines and intelligent automation with Python, LangChain, LangGraph, CrewAI and FastAPI.</p>
     <div class="hero-cta rv" style="--d:.35s">
       <a class="btn btn-primary mag" href="#projects"><span>View Projects</span><i data-lucide="arrow-right"></i></a>
       <button class="btn btn-ghost mag" id="hero-ask" type="button"><i data-lucide="sparkles"></i><span>Ask Aneeq AI</span></button>
@@ -564,10 +721,10 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:40px}
       <a class="icon-btn" id="hero-wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
     </div>
     <div class="hero-stats rv stg" style="--d:.55s">
-      <div class="stat"><span class="stat-n mono"><em data-count="4">0</em></span><span class="stat-l">AI systems shipped</span></div>
+      <div class="stat"><span class="stat-n mono"><em data-count="16">0</em></span><span class="stat-l">AI projects</span></div>
       <div class="stat"><span class="stat-n mono"><em data-count="3">0</em></span><span class="stat-l">Industry roles</span></div>
-      <div class="stat"><span class="stat-n mono"><em data-count="7">0</em></span><span class="stat-l">AI certifications</span></div>
-      <div class="stat"><span class="stat-n mono"><em data-count="97" data-suf="%">0</em></span><span class="stat-l">Vision accuracy · up to</span></div>
+      <div class="stat"><span class="stat-n mono"><em data-count="8">0</em></span><span class="stat-l">AI certifications</span></div>
+      <div class="stat"><span class="stat-n mono"><em data-count="10">0</em></span><span class="stat-l">Competency areas</span></div>
     </div>
   </div>
   <div class="scroll-cue mono" aria-hidden="true">SCROLL<i data-lucide="chevron-down"></i></div>
@@ -586,9 +743,9 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:40px}
     <div class="sec-head rv"><p class="kicker mono">01 · ABOUT</p><h2>Practical AI, <span class="grad">responsibly engineered</span></h2></div>
     <div class="about-grid">
       <div class="about-txt rv">
-        <p>I'm <b>Aneeq Imran</b> — an AI Engineer from Lahore, Pakistan. My work sits at the intersection of applied research and shipping product: <b>Generative AI, Agentic AI, RAG and multi-agent systems</b> turned into tools people actually use.</p>
-        <p>I care about <b>practical AI solutions</b> — every project I take on targets a measurable productivity or operational outcome: screening resumes faster, measuring leather more accurately, writing with citations. Never AI for its own sake.</p>
-        <p>And I build with <b>responsible AI adoption</b> in mind — grounded outputs, verifiable results, and honest limitations.</p>
+        <p>I'm <b>Aneeq Imran</b>, an AI Engineer from Lahore, Pakistan, with a BS in Computer Engineering from UET (2021–2025, CGPA 3.45). I specialize in <b>Generative AI, Agentic AI, Machine Learning and Computer Vision</b>.</p>
+        <p>Through internships at Mind Rind and Symtera Technologies, and my current AI/ML traineeship at NETSOL IT Village, I've built <b>LLM-powered applications, multi-agent systems, RAG pipelines and automation workflows</b>, plus vision models for disease, deepfake and object detection.</p>
+        <p>My focus is <b>scalable AI solutions for real-world applications</b>.</p>
         <div class="focus-grid stg">
           <div class="focus-i"><i data-lucide="bot"></i>Generative AI</div>
           <div class="focus-i"><i data-lucide="workflow"></i>Agentic AI</div>
@@ -616,7 +773,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:40px}
 <!-- SKILLS -->
 <section class="section" id="skills">
   <div class="wrap">
-    <div class="sec-head rv"><p class="kicker mono">02 · CORE COMPETENCIES</p><h2>The complete stack</h2><p>Every technology from the CV — click any badge to ask Aneeq AI where it's been used.</p></div>
+    <div class="sec-head rv"><p class="kicker mono">02 · CORE COMPETENCIES</p><h2>The complete stack</h2><p>Every competency from the CV — click any badge to ask Aneeq AI where it's been used.</p></div>
     <div id="skills-grid" class="stg rv"></div>
   </div>
 </section>
@@ -632,8 +789,14 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:40px}
 <!-- PROJECTS -->
 <section class="section" id="projects">
   <div class="wrap">
-    <div class="sec-head rv"><p class="kicker mono">04 · FEATURED PROJECTS</p><h2>Systems I've <span class="grad">shipped</span></h2><p>Four production-grade AI projects. Open any case study for problem, solution, architecture, implementation and verified results.</p></div>
-    <div id="proj-wrap"></div>
+    <div class="sec-head rv"><p class="kicker mono">04 · PROJECTS</p><h2>Systems I've <span class="grad">built</span></h2><p id="pj-sub">Open any project for the problem, solution, features, workflow and technology stack.</p></div>
+    <div class="pj-tools rv">
+      <div class="pj-filters" id="pj-filters" role="group" aria-label="Filter projects by category"></div>
+      <div class="pj-search"><i data-lucide="search"></i><input id="pj-q" type="search" placeholder="Search projects or technologies" aria-label="Search projects" autocomplete="off"></div>
+    </div>
+    <p class="pj-count mono" id="pj-count" aria-live="polite"></p>
+    <div id="pj-grid" class="pj-grid stg"></div>
+    <div class="pj-empty" id="pj-empty" hidden><p>No projects match that search.</p><button class="btn btn-ghost btn-sm" id="pj-reset" type="button">Show all projects</button></div>
   </div>
 </section>
 
@@ -645,7 +808,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:40px}
       <div class="lab-panel rv">
         <span class="lab-k mono">PIPELINE_A</span>
         <h3>RAG Pipeline</h3>
-        <p class="lab-sub">Retrieval-Augmented Generation — as implemented in the Resume Screening system &amp; Writely.AI</p>
+        <p class="lab-sub">Retrieval-Augmented Generation — as implemented in the Resume Screening system &amp; Scholarly Help</p>
         <div class="dg" id="dg-rag"></div>
         <div class="lab-cap mono" id="cap-rag" aria-live="polite">hover a node to inspect each stage</div>
       </div>
@@ -773,7 +936,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:40px}
   <svg viewBox="0 0 448 512" width="24" height="24" aria-hidden="true"><use href="#i-wa"/></svg>
   <span class="fab-tip mono">CHAT ON WHATSAPP</span>
 </a>
-<button class="fab-ai" id="fab-ai" type="button" aria-label="Open Aneeq AI chatbot"><i data-lucide="sparkles"></i><span>Ask Aneeq AI</span></button>
+<button class="fab-ai" id="fab-ai" type="button" aria-label="Open Aneeq AI chatbot"><i data-lucide="sparkles" class="f-o"></i><i data-lucide="x" class="f-c"></i><span class="f-t">Ask Aneeq AI</span></button>
 
 <!-- CHATBOT -->
 <div class="chatbot" id="chatbot" role="dialog" aria-label="Aneeq AI — portfolio assistant">
@@ -782,7 +945,7 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:40px}
     <div class="chat-tt"><b>Aneeq AI</b><span class="st"><i></i>RAG · CV KNOWLEDGE BASE · ONLINE</span></div>
     <div class="chat-act">
       <button class="cbtn" id="chat-clear" type="button" aria-label="Clear conversation"><i data-lucide="trash-2"></i></button>
-      <button class="cbtn" id="chat-close" type="button" aria-label="Close chat"><i data-lucide="x"></i></button>
+      <button class="cbtn" id="chat-close" type="button" aria-label="Close chat"><i data-lucide="x"></i><span>Close</span></button>
     </div>
   </div>
   <div class="chat-log" id="chat-log" role="log" aria-live="polite"></div>
@@ -796,7 +959,22 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;margin-top:40px}
 
 <div id="toasts" aria-live="polite"></div>
 
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+/* Local icon set (Lucide, ISC license) — no CDN dependency */
+(function(){
+const ICONS={"arrow-left":"<path d=\"m12 19-7-7 7-7\" /> <path d=\"M19 12H5\" />","arrow-right":"<path d=\"M5 12h14\" /> <path d=\"m12 5 7 7-7 7\" />","arrow-up-right":"<path d=\"M7 7h10v10\" /> <path d=\"M7 17 17 7\" />","award":"<path d=\"m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526\" /> <circle cx=\"12\" cy=\"8\" r=\"6\" />","badge-check":"<path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\" /> <path d=\"m9 12 2 2 4-4\" />","bot":"<path d=\"M12 8V4H8\" /> <rect width=\"16\" height=\"12\" x=\"4\" y=\"8\" rx=\"2\" /> <path d=\"M2 14h2\" /> <path d=\"M20 14h2\" /> <path d=\"M15 13v2\" /> <path d=\"M9 13v2\" />","building-2":"<path d=\"M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z\" /> <path d=\"M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2\" /> <path d=\"M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2\" /> <path d=\"M10 6h4\" /> <path d=\"M10 10h4\" /> <path d=\"M10 14h4\" /> <path d=\"M10 18h4\" />","calendar":"<path d=\"M8 2v4\" /> <path d=\"M16 2v4\" /> <rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\" /> <path d=\"M3 10h18\" />","check":"<path d=\"M20 6 9 17l-5-5\" />","chevron-down":"<path d=\"m6 9 6 6 6-6\" />","copy":"<rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\" /> <path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\" />","database":"<ellipse cx=\"12\" cy=\"5\" rx=\"9\" ry=\"3\" /> <path d=\"M3 5V19A9 3 0 0 0 21 19V5\" /> <path d=\"M3 12A9 3 0 0 0 21 12\" />","download":"<path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\" /> <polyline points=\"7 10 12 15 17 10\" /> <line x1=\"12\" x2=\"12\" y1=\"15\" y2=\"3\" />","github":"<path d=\"M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4\" /> <path d=\"M9 18c-4.51 2-5-2-7-2\" />","globe":"<circle cx=\"12\" cy=\"12\" r=\"10\" /> <path d=\"M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20\" /> <path d=\"M2 12h20\" />","graduation-cap":"<path d=\"M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z\" /> <path d=\"M22 10v6\" /> <path d=\"M6 12.5V16a6 3 0 0 0 12 0v-3.5\" />","layout-grid":"<rect width=\"7\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"7\" x=\"14\" y=\"3\" rx=\"1\" /> <rect width=\"7\" height=\"7\" x=\"14\" y=\"14\" rx=\"1\" /> <rect width=\"7\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\" />","linkedin":"<path d=\"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z\" /> <rect width=\"4\" height=\"12\" x=\"2\" y=\"9\" /> <circle cx=\"4\" cy=\"4\" r=\"2\" />","loader":"<path d=\"M12 2v4\" /> <path d=\"m16.2 7.8 2.9-2.9\" /> <path d=\"M18 12h4\" /> <path d=\"m16.2 16.2 2.9 2.9\" /> <path d=\"M12 18v4\" /> <path d=\"m4.9 19.1 2.9-2.9\" /> <path d=\"M2 12h4\" /> <path d=\"m4.9 4.9 2.9 2.9\" />","mail":"<rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\" /> <path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\" />","map-pin":"<path d=\"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0\" /> <circle cx=\"12\" cy=\"10\" r=\"3\" />","menu":"<line x1=\"4\" x2=\"20\" y1=\"12\" y2=\"12\" /> <line x1=\"4\" x2=\"20\" y1=\"6\" y2=\"6\" /> <line x1=\"4\" x2=\"20\" y1=\"18\" y2=\"18\" />","message-circle":"<path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\" />","plus":"<path d=\"M5 12h14\" /> <path d=\"M12 5v14\" />","refresh-cw":"<path d=\"M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8\" /> <path d=\"M21 3v5h-5\" /> <path d=\"M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16\" /> <path d=\"M8 16H3v5\" />","search":"<circle cx=\"11\" cy=\"11\" r=\"8\" /> <path d=\"m21 21-4.3-4.3\" />","send":"<path d=\"M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z\" /> <path d=\"m21.854 2.147-10.94 10.939\" />","shield-check":"<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" /> <path d=\"m9 12 2 2 4-4\" />","sparkles":"<path d=\"M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z\" /> <path d=\"M20 3v4\" /> <path d=\"M22 5h-4\" /> <path d=\"M4 17v2\" /> <path d=\"M5 18H3\" />","star":"<path d=\"M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z\" />","target":"<circle cx=\"12\" cy=\"12\" r=\"10\" /> <circle cx=\"12\" cy=\"12\" r=\"6\" /> <circle cx=\"12\" cy=\"12\" r=\"2\" />","trash-2":"<path d=\"M3 6h18\" /> <path d=\"M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6\" /> <path d=\"M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2\" /> <line x1=\"10\" x2=\"10\" y1=\"11\" y2=\"17\" /> <line x1=\"14\" x2=\"14\" y1=\"11\" y2=\"17\" />","workflow":"<rect width=\"8\" height=\"8\" x=\"3\" y=\"3\" rx=\"2\" /> <path d=\"M7 11v4a2 2 0 0 0 2 2h4\" /> <rect width=\"8\" height=\"8\" x=\"13\" y=\"13\" rx=\"2\" />","x":"<path d=\"M18 6 6 18\" /> <path d=\"m6 6 12 12\" />","zap":"<path d=\"M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z\" />","brain-circuit":"<path d=\"M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z\" /> <path d=\"M9 13a4.5 4.5 0 0 0 3-4\" /> <path d=\"M6.003 5.125A3 3 0 0 0 6.401 6.5\" /> <path d=\"M3.477 10.896a4 4 0 0 1 .585-.396\" /> <path d=\"M6 18a4 4 0 0 1-1.967-.516\" /> <path d=\"M12 13h4\" /> <path d=\"M12 18h6a2 2 0 0 1 2 2v1\" /> <path d=\"M12 8h8\" /> <path d=\"M16 8V5a2 2 0 0 1 2-2\" /> <circle cx=\"16\" cy=\"13\" r=\".5\" /> <circle cx=\"18\" cy=\"3\" r=\".5\" /> <circle cx=\"20\" cy=\"21\" r=\".5\" /> <circle cx=\"20\" cy=\"8\" r=\".5\" />","boxes":"<path d=\"M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z\" /> <path d=\"m7 16.5-4.74-2.85\" /> <path d=\"m7 16.5 5-3\" /> <path d=\"M7 16.5v5.17\" /> <path d=\"M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z\" /> <path d=\"m17 16.5-5-3\" /> <path d=\"m17 16.5 4.74-2.85\" /> <path d=\"M17 16.5v5.17\" /> <path d=\"M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z\" /> <path d=\"M12 8 7.26 5.15\" /> <path d=\"m12 8 4.74-2.85\" /> <path d=\"M12 13.5V8\" />","braces":"<path d=\"M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1\" /> <path d=\"M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1\" />","briefcase-business":"<path d=\"M12 12h.01\" /> <path d=\"M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2\" /> <path d=\"M22 13a18.15 18.15 0 0 1-20 0\" /> <rect width=\"20\" height=\"14\" x=\"2\" y=\"6\" rx=\"2\" />","cpu":"<rect width=\"16\" height=\"16\" x=\"4\" y=\"4\" rx=\"2\" /> <rect width=\"6\" height=\"6\" x=\"9\" y=\"9\" rx=\"1\" /> <path d=\"M15 2v2\" /> <path d=\"M15 20v2\" /> <path d=\"M2 15h2\" /> <path d=\"M2 9h2\" /> <path d=\"M20 15h2\" /> <path d=\"M20 9h2\" /> <path d=\"M9 2v2\" /> <path d=\"M9 20v2\" />","dumbbell":"<path d=\"M14.4 14.4 9.6 9.6\" /> <path d=\"M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z\" /> <path d=\"m21.5 21.5-1.4-1.4\" /> <path d=\"M3.9 3.9 2.5 2.5\" /> <path d=\"M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z\" />","file-search":"<path d=\"M14 2v4a2 2 0 0 0 2 2h4\" /> <path d=\"M4.268 21a2 2 0 0 0 1.727 1H18a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v3\" /> <path d=\"m9 18-1.5-1.5\" /> <circle cx=\"5\" cy=\"14\" r=\"3\" />","file-text":"<path d=\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z\" /> <path d=\"M14 2v4a2 2 0 0 0 2 2h4\" /> <path d=\"M10 9H8\" /> <path d=\"M16 13H8\" /> <path d=\"M16 17H8\" />","film":"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" /> <path d=\"M7 3v18\" /> <path d=\"M3 7.5h4\" /> <path d=\"M3 12h18\" /> <path d=\"M3 16.5h4\" /> <path d=\"M17 3v18\" /> <path d=\"M17 7.5h4\" /> <path d=\"M17 16.5h4\" />","leaf":"<path d=\"M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z\" /> <path d=\"M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12\" />","messages-square":"<path d=\"M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z\" /> <path d=\"M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1\" />","network":"<rect x=\"16\" y=\"16\" width=\"6\" height=\"6\" rx=\"1\" /> <rect x=\"2\" y=\"16\" width=\"6\" height=\"6\" rx=\"1\" /> <rect x=\"9\" y=\"2\" width=\"6\" height=\"6\" rx=\"1\" /> <path d=\"M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3\" /> <path d=\"M12 12V8\" />","ruler":"<path d=\"M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z\" /> <path d=\"m14.5 12.5 2-2\" /> <path d=\"m11.5 9.5 2-2\" /> <path d=\"m8.5 6.5 2-2\" /> <path d=\"m17.5 15.5 2-2\" />","scan-eye":"<path d=\"M3 7V5a2 2 0 0 1 2-2h2\" /> <path d=\"M17 3h2a2 2 0 0 1 2 2v2\" /> <path d=\"M21 17v2a2 2 0 0 1-2 2h-2\" /> <path d=\"M7 21H5a2 2 0 0 1-2-2v-2\" /> <circle cx=\"12\" cy=\"12\" r=\"1\" /> <path d=\"M18.944 12.33a1 1 0 0 0 0-.66 7.5 7.5 0 0 0-13.888 0 1 1 0 0 0 0 .66 7.5 7.5 0 0 0 13.888 0\" />","scan-face":"<path d=\"M3 7V5a2 2 0 0 1 2-2h2\" /> <path d=\"M17 3h2a2 2 0 0 1 2 2v2\" /> <path d=\"M21 17v2a2 2 0 0 1-2 2h-2\" /> <path d=\"M7 21H5a2 2 0 0 1-2-2v-2\" /> <path d=\"M8 14s1.5 2 4 2 4-2 4-2\" /> <path d=\"M9 9h.01\" /> <path d=\"M15 9h.01\" />","server":"<rect width=\"20\" height=\"8\" x=\"2\" y=\"2\" rx=\"2\" ry=\"2\" /> <rect width=\"20\" height=\"8\" x=\"2\" y=\"14\" rx=\"2\" ry=\"2\" /> <line x1=\"6\" x2=\"6.01\" y1=\"6\" y2=\"6\" /> <line x1=\"6\" x2=\"6.01\" y1=\"18\" y2=\"18\" />","share-2":"<circle cx=\"18\" cy=\"5\" r=\"3\" /> <circle cx=\"6\" cy=\"12\" r=\"3\" /> <circle cx=\"18\" cy=\"19\" r=\"3\" /> <line x1=\"8.59\" x2=\"15.42\" y1=\"13.51\" y2=\"17.49\" /> <line x1=\"15.41\" x2=\"8.59\" y1=\"6.51\" y2=\"10.49\" />","stethoscope":"<path d=\"M11 2v2\" /> <path d=\"M5 2v2\" /> <path d=\"M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1\" /> <path d=\"M8 15a6 6 0 0 0 12 0v-3\" /> <circle cx=\"20\" cy=\"10\" r=\"2\" />","terminal":"<polyline points=\"4 17 10 11 4 5\" /> <line x1=\"12\" x2=\"20\" y1=\"19\" y2=\"19\" />","trending-up":"<polyline points=\"22 7 13.5 15.5 8.5 10.5 2 17\" /> <polyline points=\"16 7 22 7 22 13\" />","video":"<path d=\"m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5\" /> <rect x=\"2\" y=\"6\" width=\"14\" height=\"12\" rx=\"2\" />","heart-pulse":"<path d=\"M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z\" /> <path d=\"M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27\" />","chart-candlestick":"<path d=\"M9 5v4\" /> <rect width=\"4\" height=\"6\" x=\"7\" y=\"9\" rx=\"1\" /> <path d=\"M9 15v2\" /> <path d=\"M17 3v2\" /> <rect width=\"4\" height=\"8\" x=\"15\" y=\"5\" rx=\"1\" /> <path d=\"M17 13v3\" /> <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />","bot-message-square":"<path d=\"M12 6V2H8\" /> <path d=\"m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z\" /> <path d=\"M2 12h2\" /> <path d=\"M9 11v2\" /> <path d=\"M15 11v2\" /> <path d=\"M20 12h2\" />","app-window":"<rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\" /> <path d=\"M10 4v4\" /> <path d=\"M2 8h20\" /> <path d=\"M6 4v4\" />","smartphone":"<rect width=\"14\" height=\"20\" x=\"5\" y=\"2\" rx=\"2\" ry=\"2\" /> <path d=\"M12 18h.01\" />","file-user":"<path d=\"M14 2v4a2 2 0 0 0 2 2h4\" /> <path d=\"M15 18a3 3 0 1 0-6 0\" /> <path d=\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z\" /> <circle cx=\"12\" cy=\"13\" r=\"2\" />","crosshair":"<circle cx=\"12\" cy=\"12\" r=\"10\" /> <line x1=\"22\" x2=\"18\" y1=\"12\" y2=\"12\" /> <line x1=\"6\" x2=\"2\" y1=\"12\" y2=\"12\" /> <line x1=\"12\" x2=\"12\" y1=\"6\" y2=\"2\" /> <line x1=\"12\" x2=\"12\" y1=\"22\" y2=\"18\" />","shield-alert":"<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" /> <path d=\"M12 8v4\" /> <path d=\"M12 16h.01\" />","cctv":"<path d=\"M16.75 12h3.632a1 1 0 0 1 .894 1.447l-2.034 4.069a1 1 0 0 1-1.708.134l-2.124-2.97\" /> <path d=\"M17.106 9.053a1 1 0 0 1 .447 1.341l-3.106 6.211a1 1 0 0 1-1.342.447L3.61 12.3a2.92 2.92 0 0 1-1.3-3.91L3.69 5.6a2.92 2.92 0 0 1 3.92-1.3z\" /> <path d=\"M2 19h3.76a2 2 0 0 0 1.8-1.1L9 15\" /> <path d=\"M2 21v-4\" /> <path d=\"M7 9h.01\" />","sprout":"<path d=\"M7 20h10\" /> <path d=\"M10 20c5.5-2.5.8-6.4 3-10\" /> <path d=\"M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z\" /> <path d=\"M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z\" />","maximize-2":"<polyline points=\"15 3 21 3 21 9\" /> <polyline points=\"9 21 3 21 3 15\" /> <line x1=\"21\" x2=\"14\" y1=\"3\" y2=\"10\" /> <line x1=\"3\" x2=\"10\" y1=\"21\" y2=\"14\" />","minimize-2":"<polyline points=\"4 14 10 14 10 20\" /> <polyline points=\"20 10 14 10 14 4\" /> <line x1=\"14\" x2=\"21\" y1=\"10\" y2=\"3\" /> <line x1=\"3\" x2=\"10\" y1=\"21\" y2=\"14\" />","layers":"<path d=\"m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z\" /> <path d=\"m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65\" /> <path d=\"m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65\" />","code-xml":"<path d=\"m18 16 4-4-4-4\" /> <path d=\"m6 8-4 4 4 4\" /> <path d=\"m14.5 4-5 16\" />","zoom-in":"<circle cx=\"11\" cy=\"11\" r=\"8\" /> <line x1=\"21\" x2=\"16.65\" y1=\"21\" y2=\"16.65\" /> <line x1=\"11\" x2=\"11\" y1=\"8\" y2=\"14\" /> <line x1=\"8\" x2=\"14\" y1=\"11\" y2=\"11\" />","image":"<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\" /> <circle cx=\"9\" cy=\"9\" r=\"2\" /> <path d=\"m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21\" />","activity":"<path d=\"M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2\" />","book-open":"<path d=\"M12 7v14\" /> <path d=\"M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z\" />","clock":"<circle cx=\"12\" cy=\"12\" r=\"10\" /> <polyline points=\"12 6 12 12 16 14\" />","chevron-up":"<path d=\"m18 15-6-6-6 6\" />","eye":"<path d=\"M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0\" /> <circle cx=\"12\" cy=\"12\" r=\"3\" />","lightbulb":"<path d=\"M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5\" /> <path d=\"M9 18h6\" /> <path d=\"M10 22h4\" />","rocket":"<path d=\"M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z\" /> <path d=\"m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z\" /> <path d=\"M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0\" /> <path d=\"M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5\" />","scan-line":"<path d=\"M3 7V5a2 2 0 0 1 2-2h2\" /> <path d=\"M17 3h2a2 2 0 0 1 2 2v2\" /> <path d=\"M21 17v2a2 2 0 0 1-2 2h-2\" /> <path d=\"M7 21H5a2 2 0 0 1-2-2v-2\" /> <path d=\"M7 12h10\" />"};
+const NS='http://www.w3.org/2000/svg';
+window.lucide={createIcons:function(){
+  document.querySelectorAll('i[data-lucide]').forEach(function(el){
+    const n=el.getAttribute('data-lucide'), b=ICONS[n]; if(!b) return;
+    const s=document.createElementNS(NS,'svg');
+    [['xmlns',NS],['width','24'],['height','24'],['viewBox','0 0 24 24'],['fill','none'],['stroke','currentColor'],['stroke-width','2'],['stroke-linecap','round'],['stroke-linejoin','round'],['aria-hidden','true']].forEach(function(a){s.setAttribute(a[0],a[1])});
+    s.setAttribute('class','lucide lucide-'+n+(el.getAttribute('class')?' '+el.getAttribute('class'):''));
+    s.innerHTML=b; el.replaceWith(s);
+  });
+}};
+})();
+</script>
 <script>
 /* =====================================================================
    ANEEQ IMRAN — AI ENGINEER PORTFOLIO
@@ -821,146 +999,35 @@ const LINKS = {
 
 const SKILLS = [
   {cat:'Artificial Intelligence', ic:'brain-circuit', items:['Generative AI','Agentic AI','RAG','Prompt Engineering','Multi-Agent Systems','AI Workflow Automation']},
-  {cat:'AI Frameworks', ic:'boxes', items:['LangChain','LangGraph','CrewAI']},
-  {cat:'Large Language Models', ic:'bot', items:['Claude','GPT','Gemini','LLaMA']},
+  {cat:'Machine Learning & Deep Learning', ic:'cpu', items:['Scikit-learn','TensorFlow','Keras','Regression','Classification','Random Forest','LSTM','GRU','Transformers']},
+  {cat:'Computer Vision', ic:'scan-eye', items:['YOLO','Vision Transformers (ViT)','Object Detection','Image Classification']},
+  {cat:'AI Frameworks', ic:'boxes', items:['LangChain','LangGraph','CrewAI','Hugging Face']},
+  {cat:'Large Language Models', ic:'bot', items:['Claude','GPT','Gemini','Llama','Kimi','DeepSeek','GLM']},
   {cat:'Programming', ic:'braces', items:['Python','Java','SQL','JavaScript']},
-  {cat:'Backend', ic:'server', items:['FastAPI','Flask','REST APIs','PostgreSQL']},
-  {cat:'Automation & Data Engineering', ic:'workflow', items:['n8n','Playwright','Web Scraping','BeautifulSoup','Requests']},
-  {cat:'Developer Tools', ic:'terminal', items:['Git','GitHub','Cursor','VS Code','PyCharm','Postman']}
+  {cat:'Backend Development', ic:'server', items:['FastAPI','Flask','REST APIs','PostgreSQL']},
+  {cat:'Automation & Integration', ic:'workflow', items:['n8n','Playwright','Selenium','Web Scraping','Requests','Webhooks']},
+  {cat:'Data Science', ic:'database', items:['Pandas','NumPy','Matplotlib','Seaborn','Google Colab']},
+  {cat:'Developer Tools', ic:'terminal', items:['Git','GitHub','Cursor','VS Code','PyCharm','Postman','Windsurf']}
 ];
 
 const XP = [
-  { role:'AI/ML Trainee', co:'NETSOL IT Village', loc:'Lahore', date:'Sep 2026 – Present', cur:true,
+  { role:'AI/ML Trainee', co:'NETSOL IT Village', loc:'Lahore, Pakistan', date:'Sep 2026 – Present', cur:true,
     pts:[
-      'Undergoing intensive training in machine learning fundamentals and production-grade AI engineering practices.',
-      'Building Generative AI and Agentic AI applications with LangChain, LangGraph and CrewAI.',
-      'Developing RAG pipelines covering document ingestion, embeddings, vector search and retrieval.',
-      'Implementing LLM-driven features with Claude, GPT, Gemini and LLaMA models.',
-      'Collaborating on AI workflow automation projects that solve real operational problems.'
+      'Developed Python-based AI/ML applications involving machine learning, deep learning and predictive modeling using Scikit-learn, TensorFlow and Keras.',
+      'Built Computer Vision solutions using Vision Transformers (ViT) and YOLO for disease detection, image classification, deepfake detection and real-time object detection.',
+      'Developed practical Generative AI, RAG and time-series forecasting applications, integrating LLMs, Hugging Face, FastAPI, Flask and React Native.'
     ]},
-  { role:'Associate AI Engineer | AI Intern', co:'Symtera Technologies', loc:'Lahore', date:'Jan 2026 – July 2026', cur:false,
+  { role:'AI Intern', co:'Symtera Technologies', loc:'Lahore, Pakistan', date:'Jan 2026 – Jul 2026', cur:false,
     pts:[
-      'Developed AI-powered backend services in Python and FastAPI, exposing models through clean REST APIs.',
-      'Built the AI Resume Screening & Candidate Matching System using embeddings, RAG and the Gemini API.',
-      'Engineered document ingestion pipelines parsing PDF, DOCX, DOC and TXT files with automated information extraction and candidate profiling.',
-      'Designed data models and persistence layers with PostgreSQL behind production REST APIs.',
-      'Partnered on React dashboard features including drag-and-drop uploads and real-time candidate ranking.'
+      'Engineered a Python-based LinkedIn lead generation and outreach automation system covering lead discovery, profile enrichment, qualification, scoring and personalized messaging.',
+      'Developed Agentic AI and RAG-based applications using LangGraph, LangChain, FastAPI, vector databases and LLMs to automate multi-step business processes.',
+      'Built automated data extraction and processing pipelines using web scraping, REST APIs, webhooks and n8n to streamline data collection and business workflows.'
     ]},
-  { role:'Generative AI Intern', co:'Mind Rind', loc:'Lahore', date:'Jun 2025 – Aug 2025', cur:false,
+  { role:'Generative AI Intern', co:'Mind Rind', loc:'Lahore, Pakistan', date:'Jun 2025 – Aug 2025', cur:false,
     pts:[
-      'Developed generative AI features and LLM-powered content tools for real product workflows.',
-      'Applied prompt engineering across Claude, GPT and Gemini models to shape reliable, high-quality outputs.',
-      'Prototyped RAG components including document parsing, embeddings and vector search.',
-      'Integrated multiple LLM provider APIs and assisted in evaluating outputs for production readiness.'
-    ]}
-];
-
-const PROJECTS = [
-  { id:'proj-linkedin', n:'01', short:'LinkedIn Automation',
-    title:'LinkedIn Lead Generation & Outreach Automation',
-    tag:'Autonomous multi-agent outreach platform',
-    tech:['Python','LangGraph','Playwright','PostgreSQL','FastAPI'],
-    badge:{t:'AUTONOMOUS · END-TO-END',hot:false},
-    metric:'Fully autonomous outreach lifecycle — discovery through automated follow-ups.',
-    pts:[
-      'Engineered an autonomous multi-agent platform that runs the complete outreach lifecycle — lead discovery, qualification, enrichment and personalized outreach.',
-      'Built stateful LangGraph agents powered by Claude Sonnet and LLaMA through the OpenRouter API for intelligent decision-making at every stage.',
-      'Automated LinkedIn data extraction with Playwright, combined with REST API integrations and n8n workflows for pipeline automation and automated follow-ups.',
-      'Delivered the full stack in Python with FastAPI services and PostgreSQL for persistent lead management.'
-    ],
-    problem:'B2B outreach on LinkedIn is slow and manual: finding the right people, checking whether they are worth contacting, researching them, writing personal messages, and remembering to follow up — every step eats hours and drops leads.',
-    solution:'An autonomous multi-agent platform that owns the entire funnel. Stateful LangGraph agents handle discovery, qualification, enrichment and personalized outreach end-to-end, with automated follow-ups so no lead goes cold.',
-    impl:[
-      'Playwright-driven extraction scrapes and structures LinkedIn lead data.',
-      'Discovery, qualification and enrichment agents reason over leads using Claude Sonnet and LLaMA via the OpenRouter API.',
-      'A stateful LangGraph graph maintains context across stages — every lead carries its own state.',
-      'n8n workflows and REST API integrations automate scheduling, outreach and follow-ups.',
-      'FastAPI services and PostgreSQL persist leads, track progress and expose the pipeline.'
-    ],
-    results:[
-      {i:'workflow', t:'Autonomous pipeline: discovery → follow-ups with no manual touchpoints'},
-      {i:'zap', t:'Personalized outreach generated per lead by LLM agents'},
-      {i:'database', t:'Stateful orchestration keeps every lead\u2019s context across stages'}
-    ]},
-  { id:'proj-resume', n:'02', short:'Resume Screening',
-    title:'AI Resume Screening & Candidate Matching System',
-    tag:'RAG-powered recruiting intelligence',
-    tech:['Python','FastAPI','PostgreSQL','React','RAG'],
-    badge:{t:'≈70% LESS SCREENING TIME',hot:true},
-    metric:'Approximately 70% reduction in manual resume screening time.',
-    pts:[
-      'Built a system that parses PDF, DOCX, DOC and TXT resumes with automated information extraction and candidate profiling.',
-      'Applied embeddings and RAG with the Gemini API to semantically match candidates against job descriptions.',
-      'Produced match scoring, skill-gap analysis and hiring recommendations for recruiters.',
-      'Shipped a FastAPI + PostgreSQL backend with REST APIs and a React dashboard featuring drag-and-drop uploads and real-time candidate ranking.'
-    ],
-    problem:'Recruiters drown in resumes. Screening PDF, DOCX, DOC and TXT files by hand, comparing candidates against job descriptions, and shortlisting is slow, inconsistent and expensive.',
-    solution:'An AI screening system that parses every resume, extracts and profiles candidate information, embeds it, and uses RAG with the Gemini API to semantically match candidates to job descriptions — with scoring, skill-gap analysis and hiring recommendations.',
-    impl:[
-      'Uploads (drag-and-drop) flow into a parsing engine handling PDF, DOCX, DOC and TXT.',
-      'Automated information extraction builds structured candidate profiles.',
-      'Profiles are embedded and stored for semantic retrieval.',
-      'RAG with the Gemini API matches candidates against job descriptions.',
-      'Match scoring, skill-gap analysis and hiring recommendations rank candidates in real time on a React dashboard.',
-      'FastAPI + PostgreSQL expose everything through clean REST APIs.'
-    ],
-    results:[
-      {i:'clock', t:'≈70% reduction in manual resume screening time'},
-      {i:'target', t:'Real-time ranking with match scores and skill-gap analysis'},
-      {i:'award', t:'Hiring recommendations grounded in RAG retrieval'}
-    ]},
-  { id:'proj-writely', n:'03', short:'Writely.AI',
-    title:'Writely.AI',
-    tag:'Citation-aware RAG writing platform',
-    tech:['Python','FastAPI','RAG','OpenAI','Gemini','LLaMA','Web Search','LangGraph'],
-    badge:{t:'CITATION-AWARE',hot:false},
-    metric:'Generation grounded in parsed documents and live web search.',
-    pts:[
-      'An AI writing platform for essay, report, research-paper and thesis generation.',
-      'Implemented RAG with document parsing, vector search and web search for citation-aware responses.',
-      'Integrated multiple LLM providers — OpenAI, Gemini and LLaMA — orchestrated with LangGraph.',
-      'Added semantic vector retrieval, summarization and paraphrasing capabilities on a Python and FastAPI backend.'
-    ],
-    problem:'Long-form academic writing — essays, reports, research papers, theses — demands research, sourcing, structure and citations. Generic LLM chats hallucinate sources and lose context across long documents.',
-    solution:'Writely.AI grounds generation in real sources: RAG over parsed documents and live web search, semantic vector retrieval, and citation-aware responses — combining the strengths of multiple LLM providers orchestrated by LangGraph.',
-    impl:[
-      'Documents are parsed, chunked and embedded for semantic vector retrieval.',
-      'Web search injects fresh, real-world sources into the context.',
-      'LangGraph orchestrates the generation flow across OpenAI, Gemini and LLaMA.',
-      'Summarization and paraphrasing refine output; every response is citation-aware.',
-      'A Python + FastAPI backend serves the platform.'
-    ],
-    results:[
-      {i:'book-open', t:'Citation-aware generation across essays, reports, research papers and theses'},
-      {i:'layers', t:'Multi-provider LLM orchestration: OpenAI · Gemini · LLaMA'},
-      {i:'search', t:'Retrieval grounded in documents and live web search'}
-    ]},
-  { id:'proj-leather', n:'04', short:'Leather Measurement',
-    title:'Surface Area Measurement of Irregular Leather',
-    tag:'Computer vision on the tannery floor',
-    tech:['Python','OpenCV','Flutter','PyQt5'],
-    badge:{t:'UP TO 97% ACCURACY',hot:true},
-    metric:'Up to 97% verified measurement accuracy — deployed at Siddique Leather Works.',
-    pts:[
-      'A computer-vision system measuring irregular leather surface area with up to 97% verified accuracy.',
-      'Applied image segmentation, perspective correction and grid calibration for precise measurements.',
-      'Built real-time monitoring and measurement visualization with inventory management features.',
-      'Deployed at Siddique Leather Works using HikVision industrial cameras, with Python, OpenCV, Flutter and PyQt5.'
-    ],
-    problem:'Irregular leather hides cannot be measured by length × width. Manual estimation is inconsistent, slow and directly costs money in tannery operations.',
-    solution:'A computer-vision system that computes true surface area from camera frames — segmentation isolates the hide, perspective correction flattens the view, and grid calibration converts pixels to real units — deployed on the production floor.',
-    impl:[
-      'HikVision industrial cameras stream hides on the production line.',
-      'Image segmentation isolates the irregular hide outline.',
-      'Perspective correction normalizes camera geometry.',
-      'Grid calibration maps pixels to real-world units for accurate area.',
-      'Real-time monitoring, measurement visualization and inventory management via Flutter and PyQt5 interfaces.',
-      'Deployed and verified at Siddique Leather Works.'
-    ],
-    results:[
-      {i:'target', t:'Up to 97% verified measurement accuracy'},
-      {i:'activity', t:'Real-time monitoring on the production floor'},
-      {i:'building-2', t:'Production deployment at Siddique Leather Works'}
+      'Developed AI-powered conversational agents and multi-agent systems using Python, LangChain, LangGraph, CrewAI and LLMs.',
+      'Engineered Retrieval-Augmented Generation (RAG) pipelines with vector databases for context-aware information retrieval and intelligent responses.',
+      'Developed backend APIs using FastAPI and Flask, integrating LLMs, prompt engineering and tool-based workflows into AI applications.'
     ]}
 ];
 
@@ -971,8 +1038,132 @@ const CERTS = [
   {name:'AI Fundamentals', org:'Google', yr:2026},
   {name:'Accredited AI Agent Fundamentals', org:'Databricks', yr:2026},
   {name:'AWS AI Practitioner Challenge', org:'Udacity', yr:2026},
-  {name:'Introduction to Relational Databases (RDBMS)', org:'IBM', yr:2024}
+  {name:'AWS AI & ML Scholars Challenge Completion', org:'Udacity', yr:2026},
+  {name:'Introduction to Relational Databases', org:'IBM', yr:2024}
 ];
+
+/* ---------------- PROJECTS (16) ----------------
+   feat = featured · lite = overview-level description (scope + stack only)
+   diag = reuse a hand-built diagram, otherwise flow[] auto-lays out a workflow */
+const CATS=[{id:'all',l:'All projects',ic:'layout-grid'},{id:'feat',l:'Featured',ic:'star'},{id:'genai',l:'Generative AI & RAG',ic:'sparkles'},{id:'agentic',l:'Agentic AI & Automation',ic:'workflow'},{id:'ml',l:'Machine Learning & Deep Learning',ic:'cpu'},{id:'cv',l:'Computer Vision & Object Detection',ic:'scan-eye'},{id:'apps',l:'AI-Powered Applications',ic:'app-window'}];
+const CAT_HUE={genai:205,agentic:165,ml:275,cv:190,apps:330};
+const PROJECTS = [
+ {id:'proj-flex',short:'FLEX AI',title:'FLEX AI – AI-Powered Fitness Application',cat:'AI Fitness',cats:['apps','cv'],ic:'dumbbell',feat:true,yr:'2026',
+  tag:'Pose-aware fitness coaching on mobile',
+  tech:['Python','React Native','Expo','Computer Vision'],
+  pts:['Gym pose detection that tracks body position during exercise.','Computer-vision exercise analysis for interactive fitness assistance.','Calorie tracking inside the app.','Integrated AI chatbot for fitness questions and guidance.','React Native mobile interface built with Expo.'],
+  problem:'Training without a coach makes it hard to know whether your form is right, how much you burned or what to do next. Most fitness apps are passive logbooks that never look at how you move.',
+  solution:'FLEX AI combines pose detection and exercise analysis with calorie tracking and an AI chatbot, so a user gets movement feedback and guidance in a single mobile app.',
+  flow:[['Camera','live workout'],['Pose detection','computer vision'],['Exercise analysis','movement · form'],['Calorie tracking','activity data'],['AI chatbot','fitness assistant'],['Mobile app','react native · expo']]},
+ {id:'proj-linkedin',short:'LinkedIn Automation',title:'LinkedIn Lead Generation & Outreach Automation',cat:'Agentic AI',cats:['agentic'],ic:'linkedin',feat:true,yr:'2026',kind:'Built during the Symtera Technologies internship',
+  tag:'Multi-agent lead discovery and outreach platform',
+  tech:['Python','LangGraph','Playwright','FastAPI','Claude','LLaMA','n8n','PostgreSQL'],
+  pts:['Multi-agent platform for lead discovery, enrichment, qualification, scoring and personalized outreach.','Stateful LangGraph agents powered by Claude Sonnet and LLaMA through the OpenRouter API.','Playwright-based data extraction combined with n8n and API workflows for lead analysis, connection requests and follow-ups.','Python and FastAPI services with PostgreSQL for persistent lead management.'],
+  problem:'B2B outreach on LinkedIn is slow and manual: finding the right people, deciding who is worth contacting, researching them, writing personal messages and remembering to follow up all take hours, and leads get dropped.',
+  solution:'A multi-agent platform where LangGraph agents handle discovery, enrichment, qualification, scoring and personalized messaging, while n8n and API workflows automate connection requests and follow-ups.',
+  diag:'linkedin'},
+ {id:'proj-scholarly',short:'Scholarly Help',title:'Scholarly Help – AI Academic Writing Platform',cat:'Generative AI',cats:['genai','apps'],ic:'graduation-cap',feat:true,yr:'2025',
+  tag:'Citation-aware writing grounded in documents and the web',
+  tech:['Python','FastAPI','RAG','LangGraph','OpenAI','Gemini','Vector Search','Web Search'],
+  pts:['Generates essays, reports, research papers and thesis content using multiple LLMs.','RAG with document parsing, embeddings and vector search for context-aware writing.','Web search for fresh sources alongside uploaded documents.','Summarization, paraphrasing and citation-aware responses.'],
+  problem:'Long-form academic writing needs research, sourcing, structure and citations. A plain LLM chat loses context over long documents and can invent sources.',
+  solution:'Scholarly Help grounds generation in real material: parsed documents and web search feed a RAG pipeline, and LangGraph coordinates multiple LLMs to write, summarize and paraphrase with citations.',
+  diag:'writely'},
+ {id:'proj-potato',short:'Potato Leaf Disease',title:'Potato Leaf Disease Detection',cat:'Computer Vision',cats:['cv','ml'],ic:'leaf',yr:'2026',
+  tag:'Vision Transformer classification of potato leaf blight',
+  tech:['Python','Vision Transformer (ViT)','TensorFlow','Computer Vision'],
+  pts:['Classifies potato leaf images by disease category, including early blight and late blight.','Uses a Vision Transformer (ViT) for image classification.','Applies deep learning and computer vision techniques to leaf analysis.'],
+  problem:'Early blight and late blight are common potato diseases, and catching them early protects a harvest. Inspecting leaves by eye needs expertise and does not scale across a large field.',
+  solution:'A ViT-based image classifier that analyses a leaf photo and assigns a disease category, giving a fast, repeatable first screening step.',
+  flow:[['Leaf image','input photo'],['Preprocessing','resize · normalize'],['ViT model','tensorflow'],['Disease class','early · late blight']]},
+ {id:'proj-xray',short:'Chest X-Ray',title:'Chest X-Ray Classification',cat:'Medical AI',cats:['ml','cv'],ic:'stethoscope',yr:'2026',lite:true,
+  tag:'Deep-learning classification of chest radiographs',
+  tech:['Python','Deep Learning','Image Classification'],
+  pts:['Classifies chest X-ray images with a deep-learning model.','Framed as a decision-support experiment, not a clinical diagnostic tool.'],
+  problem:'Chest X-rays are one of the most common imaging tests, and reading them takes specialist time. Automated classification can help prioritise which images need attention first.',
+  solution:'A deep-learning image classifier that takes a chest X-ray and predicts a class for the scan.',
+  flow:[['X-ray image','input scan'],['Preprocessing','normalize'],['Classifier','deep learning'],['Predicted class','output']]},
+ {id:'proj-policy',short:'Policy RAG Assistant',title:'Institutional Policy RAG Assistant',cat:'Generative AI',cats:['genai'],ic:'file-search',yr:'2026',
+  tag:'Answers grounded in institutional policy documents',
+  tech:['Python','RAG','LLMs','Hugging Face'],
+  pts:['Uses institutional policy documents as the knowledge source for retrieval.','Retrieves the passages relevant to a question before answering.','Integrates LLMs to generate context-aware responses from the retrieved policy text.'],
+  problem:'Policy handbooks are long and hard to search, and a general chatbot answers from memory, so it may quote policy that does not exist.',
+  solution:'A retrieval-augmented assistant that looks up the relevant policy passages first, then has an LLM write the answer from what it found.',
+  flow:[['Policy documents','knowledge source'],['Chunk & embed','index'],['Retrieval','relevant passages'],['LLM','hugging face'],['Answer','context-aware']]},
+ {id:'proj-deepfake',short:'Deepfake Detection',title:'Deepfake Image Detection',cat:'Computer Vision',cats:['cv','ml'],ic:'scan-face',yr:'2026',lite:true,
+  tag:'Telling authentic images from manipulated ones',
+  tech:['Python','Deep Learning','Computer Vision'],
+  pts:['Classifies images as authentic or deepfake.','Part of the computer-vision work on image classification and deepfake detection.'],
+  problem:'Synthetic faces and manipulated images spread easily and are hard to spot by eye, which weakens trust in visual media.',
+  solution:'A deep-learning image classifier that inspects an image and predicts whether it is real or synthetically generated.',
+  flow:[['Image','input'],['Preprocessing','normalize'],['Detection model','deep learning'],['Real / fake','verdict']]},
+ {id:'proj-security',short:'Security Monitoring',title:'AI Security Monitoring',cat:'Object Detection',cats:['cv'],ic:'video',yr:'2026',lite:true,
+  tag:'Real-time object detection for monitored scenes',
+  tech:['Python','YOLO','Object Detection','Computer Vision'],
+  pts:['Detects objects in camera or video footage in real time using YOLO.','Turns raw footage into structured detections that can be reviewed.'],
+  problem:'Watching camera feeds continuously is tiring and error-prone, so events get missed.',
+  solution:'An object-detection pipeline that runs YOLO on video frames to identify what appears in the scene automatically.',
+  flow:[['Video feed','camera footage'],['Frame capture','real-time'],['YOLO detection','object detection'],['Detections','output']]},
+ {id:'proj-yolo11',short:'YOLOv11 Video',title:'YOLOv11 Video Detection',cat:'Computer Vision',cats:['cv'],ic:'film',yr:'2026',lite:true,
+  tag:'Frame-by-frame object detection with YOLOv11',
+  tech:['Python','YOLOv11','Object Detection'],
+  pts:['Runs YOLOv11 object detection over video input.','Produces object detections for each processed frame.'],
+  problem:'Finding and labelling objects across hours of video by hand is slow, and results vary between reviewers.',
+  solution:'A YOLOv11 pipeline that reads a video, detects objects in its frames and outputs the detections.',
+  flow:[['Video','input'],['Frames','extraction'],['YOLOv11','detection model'],['Detections','per frame']]},
+ {id:'proj-apple',short:'Apple Stock Forecast',title:'Apple Stock Price Forecasting',cat:'Time Series Forecasting',cats:['ml'],ic:'trending-up',yr:'2026',lite:true,
+  tag:'Forecasting Apple share prices from historical data',
+  tech:['Python','Time-Series Forecasting','Machine Learning'],
+  pts:['Models historical Apple stock prices as a time series to forecast future values.','Built as a practical time-series forecasting application.','Educational project, not financial advice.'],
+  problem:'Stock prices are noisy and depend on what came before, so methods that ignore the order of the data miss temporal patterns.',
+  solution:'A time-series forecasting workflow that learns from Apple’s historical prices and predicts upcoming values.',
+  flow:[['Historical prices','time series'],['Preprocessing','clean · scale'],['Forecast model','machine learning'],['Price forecast','output']]},
+ {id:'proj-bizagent',short:'Business Assistant',title:'Agentic AI Business Assistant',cat:'Agentic AI',cats:['agentic'],ic:'briefcase',yr:'2026',lite:true,
+  tag:'An AI agent that carries out multi-step business tasks',
+  tech:['Python','LangGraph','LangChain','FastAPI','LLMs'],
+  pts:['Agent-based assistant that automates multi-step business processes.','Uses LLMs for reasoning and decisions at each step.','Built on the LangGraph and LangChain agent stack.'],
+  problem:'Routine business work spans several systems and steps, and a single prompt to a model cannot plan, act and check the result.',
+  solution:'An agentic assistant that plans a task, calls tools and APIs, and reasons with an LLM to finish multi-step business workflows.',
+  flow:[['Business request','user task'],['Agent planning','langgraph'],['Tools & APIs','actions'],['LLM reasoning','decisions'],['Completed task','output']]},
+ {id:'proj-ragbot',short:'RAG Chatbot',title:'RAG Conversational Chatbot',cat:'Generative AI',cats:['genai'],ic:'messages-square',yr:'2026',lite:true,
+  tag:'A chatbot that answers from your own documents',
+  tech:['Python','RAG','LangChain','Vector Databases','LLMs'],
+  pts:['Conversational interface backed by retrieval-augmented generation.','Retrieves context from a vector database before answering.','LLM generates context-aware replies.'],
+  problem:'LLM chatbots answer from training data. They cannot see private or recent documents and may invent an answer.',
+  solution:'A chatbot that searches a vector database for relevant context first and has the LLM answer using it.',
+  flow:[['User question','chat'],['Embedding','vector encoding'],['Vector search','context'],['LLM','generation'],['Reply','grounded']]},
+ {id:'proj-agents',short:'Conversational & Multi-Agent',title:'AI Conversational Agents and Multi-Agent Systems',cat:'Generative AI',cats:['genai','agentic'],ic:'network',yr:'2025',kind:'Built during the Mind Rind internship',lite:true,
+  tag:'Cooperating LLM agents for conversation and task work',
+  tech:['Python','LangChain','LangGraph','CrewAI','LLMs'],
+  pts:['AI-powered conversational agents built with LLMs.','Multi-agent systems where several agents cooperate on a task.','Orchestrated with LangChain, LangGraph and CrewAI.'],
+  problem:'One prompt to one model struggles with tasks that need several skills and steps, and long conversations lose structure.',
+  solution:'Conversational agents and multi-agent systems that split work between specialised agents coordinated by an orchestration framework.',
+  flow:[['User','conversation'],['Conversational agent','llm'],['Orchestration','langgraph · crewai'],['Specialised agents','task work'],['Response','output']]},
+ {id:'proj-leather',short:'Leather Measurement',title:'Surface Area Measurement of Irregular Leather',cat:'Computer Vision',cats:['cv'],ic:'ruler',yr:'',kind:'Deployed at Siddique Leather Works',
+  tag:'Computer vision on the tannery floor',
+  tech:['Python','OpenCV','Flutter','PyQt5'],
+  pts:['Measures the surface area of irregular leather with up to 97% verified accuracy.','Image segmentation, perspective correction and grid calibration for precise measurement.','Real-time monitoring, measurement visualization and inventory management.','HikVision industrial cameras with Python, OpenCV, Flutter and PyQt5 interfaces.'],
+  metric:'Up to 97% verified measurement accuracy, deployed at Siddique Leather Works.',
+  problem:'Irregular hides cannot be measured as length × width. Manual estimates are inconsistent, slow and cost money in tannery operations.',
+  solution:'A vision system that computes true surface area from camera frames: segmentation isolates the hide, perspective correction flattens the view and grid calibration converts pixels to real units.',
+  diag:'leather'},
+ {id:'proj-social',short:'Social Posting Automation',title:'AI Social Media Posting Automation',cat:'Workflow Automation',cats:['agentic'],ic:'share-2',yr:'2026',lite:true,
+  tag:'Automated, AI-assisted posting workflow',
+  tech:['n8n','Webhooks','REST APIs','Generative AI'],
+  pts:['Automates the path from content idea to published social post.','Connects services with n8n workflows, webhooks and REST APIs.','Uses AI to prepare post content inside the workflow.'],
+  problem:'Posting consistently across social channels means repeating the same write, format and publish steps by hand.',
+  solution:'An n8n workflow that triggers on an event, generates content with AI and publishes through platform APIs without manual copy-pasting.',
+  flow:[['Trigger','webhook · schedule'],['AI content','generative ai'],['n8n workflow','automation'],['Platform API','rest'],['Published post','output']]},
+ {id:'proj-resume',short:'Resume Screening',title:'AI Resume Screening & Candidate Matching System',cat:'Generative AI',cats:['genai','apps'],ic:'file-text',yr:'2026',
+  tag:'RAG-powered recruiting intelligence',
+  tech:['Python','FastAPI','PostgreSQL','React','RAG'],
+  pts:['Parses resumes from PDF, DOCX, DOC and TXT files with automated information extraction and candidate profiling.','Embedding-based semantic matching and RAG to produce candidate scores and skill-gap analysis.','Candidate rankings shown on a React dashboard.','FastAPI and PostgreSQL backend.'],
+  metric:'Approximately 70% reduction in manual resume screening time.',
+  problem:'Recruiters drown in resumes. Screening PDF, DOCX, DOC and TXT files by hand and comparing each to a job description is slow and inconsistent.',
+  solution:'A recruitment platform that parses and profiles every resume, embeds it, and uses RAG to score candidates against a job description, with skill-gap analysis and ranked results.',
+  diag:'resume'}
+];
+PROJECTS.forEach((p,i)=>{ p.n=String(i+1).padStart(2,'0'); p.impl=p.flow?p.flow.map(f=>f[0]):[]; });
 
 /* ---------------- FLOW DIAGRAM SPECS ---------------- */
 const DIAG = {
@@ -1035,7 +1226,7 @@ const DIAG = {
     {id:'pa', x:220,y:82,w:160,l:'Parsing',s:'chunk · embed'},
     {id:'vs', x:430,y:82,w:180,l:'Vector Search',s:'semantic retrieval'},
     {id:'rg', x:660,y:82,w:150,l:'RAG Core',s:'grounded context'},
-    {id:'ml', x:860,y:82,w:210,l:'Multi-LLM',s:'openai · gemini · llama'},
+    {id:'ml', x:860,y:82,w:210,l:'Multi-LLM',s:'openai · gemini'},
     {id:'out', x:860,y:224,w:210,l:'Citation Output',s:'essays · reports · thesis'},
     {id:'rf', x:610,y:224,w:200,l:'Refine',s:'summarize · paraphrase'},
     {id:'lg', x:120,y:224,w:180,l:'LangGraph',s:'orchestration'}
@@ -1052,7 +1243,7 @@ const DIAG = {
     {id:'ds', x:210,y:166,w:180,l:'Dashboard',s:'flutter · pyqt5'}
   ], edges:[['cam','cp'],['cp','sg'],['sg','pc'],['pc','gc'],['gc','ar'],['ar','mn'],['mn','iv'],['iv','ds']]}
 };
-const PROJ_DIAG = { 'proj-linkedin':'linkedin', 'proj-resume':'resume', 'proj-writely':'writely', 'proj-leather':'leather' };
+const PROJ_DIAG = { 'proj-linkedin':'linkedin' };
 
 function edgeD(a,b){
   const acy=a.y+28, bcy=b.y+28, acx=a.x+a.w/2, bcx=b.x+b.w/2;
@@ -1121,43 +1312,127 @@ function renderXP(){
     b.querySelector('span').textContent = open ? 'Show less' : `Show all ${XP[b.dataset.i].pts.length} responsibilities`;
   }));
 }
-function renderProjects(){
-  $('#proj-wrap').innerHTML = PROJECTS.map((p,i)=>`
-    <article class="proj rv" id="${p.id}">
-      <div class="proj-g mono">${p.n}</div>
-      <div class="proj-body">
-        <header class="pj-top">
-          <div><h3 class="pj-title">${p.title}</h3><p class="pj-tag">${p.tag}</p></div>
-          ${p.badge?`<span class="pj-badge mono">${p.badge.t}</span>`:''}
-        </header>
-        <ul class="pj-list">${p.pts.map(t=>`<li>${t}</li>`).join('')}</ul>
-        <div class="pj-tech">${p.tech.map(t=>`<button class="tbadge" data-q="What is Aneeq's experience with ${t}?">${t}</button>`).join('')}</div>
-        <div class="pj-actions">
-          <button class="btn btn-ghost btn-sm cs-toggle" type="button" data-i="${i}"><i data-lucide="chevron-down"></i><span>View Case Study</span></button>
-          <a class="btn btn-ghost btn-sm wa-disc" data-t="${esc(p.title)}" href="#" target="_blank" rel="noopener"><svg class="ic-wa" viewBox="0 0 448 512" aria-hidden="true"><use href="#i-wa"/></svg><span>Discuss this project</span></a>
-        </div>
-        <div class="case"><div><div class="case-in">
-          <div class="cs-grid">
-            <div class="cs-block"><h4>01 · PROBLEM</h4><p>${p.problem}</p></div>
-            <div class="cs-block"><h4>02 · SOLUTION</h4><p>${p.solution}</p></div>
-          </div>
-          <div class="cs-block"><h4>03 · ARCHITECTURE</h4><div class="dg" id="dg-${p.id}"></div></div>
-          <div class="cs-block"><h4>04 · TECHNOLOGIES</h4><div class="pj-tech" style="margin:0">${p.tech.map(t=>`<span class="tbadge">${t}</span>`).join('')}</div></div>
-          <div class="cs-block"><h4>05 · IMPLEMENTATION</h4><ol class="cs-steps">${p.impl.map(s=>`<li>${s}</li>`).join('')}</ol></div>
-          <div class="cs-block"><h4>06 · RESULTS</h4><div class="cs-res">${p.results.map(r=>`<div class="res-i"><i data-lucide="${r.i}"></i><span>${r.t}</span></div>`).join('')}</div></div>
-        </div></div></div>
-      </div>
-    </article>`).join('');
-  $$('.cs-toggle').forEach(b=>b.addEventListener('click',()=>{
-    const cs=b.closest('.proj').querySelector('.case');
-    const open=cs.classList.toggle('open'); b.classList.toggle('open',open);
-    b.querySelector('span').textContent = open?'Close Case Study':'View Case Study';
-  }));
-  $$('.wa-disc').forEach(a=>{
-    a.href='https://wa.me/923098038433?text='+encodeURIComponent(`Hello Aneeq, I visited your portfolio and would like to discuss the ${a.dataset.t} project with you.`);
-  });
-  Object.entries(PROJ_DIAG).forEach(([id,key])=>{ const h=document.getElementById('dg-'+id); if(h) flowSVG(h, DIAG[key], {key}); });
+/* ---------------- PROJECT EXPLORER ---------------- */
+function autoSpec(steps){
+  const n=steps.length, per=4, rows=Math.ceil(n/per), w=200, step=(rows===1&&n>1)?840/(n-1):280;
+  const nodes=steps.map((s,i)=>{ const r=Math.floor(i/per), k=i%per, col=rows===1?k:(r%2?per-1-k:k);
+    return {id:'n'+i,x:10+col*step,y:28+r*138,w,l:s[0],s:s[1]}; });
+  return {vb:[1080,112+(rows-1)*138],nodes,edges:nodes.slice(1).map((_,i)=>['n'+i,'n'+(i+1)])};
 }
+const specOf=p=>p.diag?DIAG[p.diag]:autoSpec(p.flow);
+PROJECTS.forEach(p=>{ p.impl=specOf(p).nodes.map(n=>n.l); });
+const hueOf=p=>CAT_HUE[p.cats[0]];
+const pState={cat:'all',q:''};
+let pmLast=null, pmCur=null;
+
+function cardHTML(p,i,big){
+  const img=p.img?`<img src="${p.img}" alt="${esc(p.title)} illustration" loading="lazy" decoding="async" style="object-position:${p.pos||'center'}" onload="this.classList.add('ld')" onerror="this.parentNode.classList.remove('has-img');this.remove()">`:'';
+  return `<button type="button" class="pc${big?' pc-big':''}" data-open="${p.id}" style="--h:${hueOf(p)};--i:${i}" aria-label="${esc(p.title)} — open project details">
+    ${(big||p.feat)?'<span class="pc-flag">FEATURED</span>':''}
+    <span class="cover${p.img?' has-img':''}">${img}<span class="cv-n">${p.n}</span><i data-lucide="${p.ic}" class="cv-big"></i><span class="cv-ic"><i data-lucide="${p.ic}"></i></span><span class="cv-cat">${esc(p.cat)}</span></span>
+    <span class="pc-body"><span class="pc-title">${p.title}</span><span class="pc-tag">${p.tag}</span>
+      <span class="pc-tech">${p.tech.slice(0,4).map(t=>`<span>${t}</span>`).join('')}${p.tech.length>4?`<span>+${p.tech.length-4}</span>`:''}</span>
+      <span class="pc-go">View project<i data-lucide="arrow-right"></i></span></span></button>`;
+}
+function matches(p){
+  if(pState.cat==='feat'){ if(!p.feat) return false; } else if(pState.cat!=='all'&&!p.cats.includes(pState.cat)) return false;
+  const q=pState.q.trim().toLowerCase(); if(!q) return true;
+  return (p.title+' '+p.tag+' '+p.cat+' '+p.tech.join(' ')+' '+p.pts.join(' ')).toLowerCase().includes(q);
+}
+function renderGrid(animate){
+  const list=PROJECTS.filter(matches), g=$('#pj-grid');
+  g.innerHTML=list.map((p,i)=>cardHTML(p,i,false)).join('');
+  $('#pj-empty').hidden=list.length>0;
+  $('#pj-count').textContent=`SHOWING ${list.length} OF ${PROJECTS.length} PROJECTS`;
+  $$('#pj-filters .pf').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cat===pState.cat)));
+  if(animate&&!RM){ g.classList.remove('swap'); void g.offsetWidth; g.classList.add('swap'); }
+  icons();
+}
+function renderProjects(){
+  const ct=c=>c==='all'?PROJECTS.length:c==='feat'?PROJECTS.filter(p=>p.feat).length:PROJECTS.filter(p=>p.cats.includes(c)).length;
+  $('#pj-sub').textContent=`${PROJECTS.length} projects across generative AI, agentic automation, machine learning and computer vision. Open any one for the problem, solution, features, workflow and stack.`;
+  $('#pj-filters').innerHTML=CATS.map(c=>`<button type="button" class="pf" data-cat="${c.id}" aria-pressed="${c.id==='all'}"><i data-lucide="${c.ic}"></i>${c.l}<b>${ct(c.id)}</b></button>`).join('');
+  renderGrid(false);
+  $('#pj-filters').addEventListener('click',e=>{ const b=e.target.closest('.pf'); if(!b)return; pState.cat=b.dataset.cat; renderGrid(true); });
+  $('#pj-q').addEventListener('input',e=>{ pState.q=e.target.value; renderGrid(true); });
+  $('#pj-reset').addEventListener('click',()=>{ pState.cat='all'; pState.q=''; $('#pj-q').value=''; renderGrid(true); });
+  $('#projects').addEventListener('click',e=>{ const c=e.target.closest('[data-open]'); if(c) openProject(c.dataset.open); });
+  buildModal();
+  const h=location.hash; if(/^#proj-/.test(h)&&PROJECTS.some(p=>'#'+p.id===h)) setTimeout(()=>openProject(h.slice(1)),400);
+}
+function buildModal(){
+  const m=document.createElement('div');
+  m.className='pmodal'; m.id='pmodal'; m.setAttribute('role','dialog'); m.setAttribute('aria-modal','true'); m.setAttribute('aria-labelledby','pm-title');
+  m.innerHTML='<div class="pm-back" data-close></div><div class="pm-box" id="pm-box"><button class="pm-close" type="button" data-close aria-label="Close project details"><i data-lucide="x"></i></button><div class="pm-scroll" id="pm-scroll" tabindex="-1"></div></div>';
+  document.body.appendChild(m); icons();
+  const sc=m.querySelector('#pm-scroll'); sc.addEventListener('scroll',()=>sc.style.setProperty('--py',Math.min(sc.scrollTop,420)+'px'),{passive:true});
+  m.addEventListener('click',e=>{
+    const z=e.target.closest('[data-zoom]'); if(z) openLB(z.dataset.zoom,z.dataset.alt);
+    if(e.target.closest('[data-close]')) closeProject();
+    const n=e.target.closest('[data-step]'); if(n) stepProject(+n.dataset.step);
+  });
+  addEventListener('keydown',e=>{
+    if(!m.classList.contains('open')||document.querySelector('#lb.open')) return;
+    if(e.key==='Escape'){ e.stopPropagation(); closeProject(); }
+    if(e.key==='Tab'){ const f=[...m.querySelectorAll('button,a[href]')].filter(x=>x.offsetParent!==null); if(!f.length)return;
+      const a=f[0], z=f[f.length-1];
+      if(e.shiftKey&&(document.activeElement===a||document.activeElement===m.querySelector('#pm-scroll'))){ e.preventDefault(); z.focus(); }
+      else if(!e.shiftKey&&document.activeElement===z){ e.preventDefault(); a.focus(); } }
+  },true);
+}
+function modalHTML(p){
+  const spec=specOf(p), i=PROJECTS.indexOf(p), prev=PROJECTS[(i+PROJECTS.length-1)%PROJECTS.length], next=PROJECTS[(i+1)%PROJECTS.length];
+  const wa='https://wa.me/923098038433?text='+encodeURIComponent(`Hello Aneeq, I visited your portfolio and would like to discuss the ${p.title} project with you.`);
+  const pills=[p.cat,p.feat?'Featured':'',p.yr,p.kind].filter(Boolean).map((t,k)=>`<span class="pm-pill" style="--k:${k}">${esc(t)}</span>`).join('');
+  const hero=p.img?`<button type="button" class="pm-hero" style="--h:${hueOf(p)}" data-zoom="${p.img}" data-alt="${esc(p.title)}" aria-label="View ${esc(p.title)} image full size"><img class="bg" src="${p.img}" alt="" aria-hidden="true"><img class="fg" src="${p.img}" alt="${esc(p.title)} illustration" onerror="heroFail(this,'${p.ic}')"><span class="zh"><i data-lucide="maximize-2"></i>VIEW FULL SIZE</span></button>`
+    :`<div class="pm-hero gen" style="--h:${hueOf(p)}" aria-hidden="true"><i data-lucide="${p.ic}"></i></div>`;
+  return `${hero}
+  <header class="pm-head" style="--h:${hueOf(p)}">
+    <div class="pm-pills">${pills}</div>
+    <h3 id="pm-title">${p.title}</h3><p>${p.tag}</p>
+  </header>
+  <div class="pm-body">
+    <div class="pm-two" style="--k:0">
+      <section class="pm-sec"><h4>PROBLEM</h4><p>${p.problem}</p></section>
+      <section class="pm-sec"><h4>SOLUTION</h4><p>${p.solution}</p></section>
+    </div>
+    <section class="pm-sec" style="--k:1"><h4>FEATURES</h4><ul class="pm-list">${p.pts.map((t,k)=>`<li style="--k:${k}">${t}</li>`).join('')}</ul>${p.metric?`<div class="pm-metric"><i data-lucide="target"></i><span>${p.metric}</span></div>`:''}</section>
+    <section class="pm-sec" style="--k:2"><h4>WORKFLOW</h4><div class="dg" id="pm-dg"></div>
+      <ol class="wf-list">${spec.nodes.map(n=>`<li><b>${n.l}</b><span>${n.s||''}</span></li>`).join('')}</ol>
+      <p class="pm-foot" style="margin-top:12px">Workflow diagram illustrates the architecture, not a screenshot of the application.</p></section>
+    <section class="pm-sec" style="--k:3"><h4>TECHNOLOGIES</h4><div class="pj-tech" style="display:flex;flex-wrap:wrap;gap:8px">${p.tech.map(t=>`<button type="button" class="tbadge" data-q="What is Aneeq's experience with ${esc(t)}?">${t}</button>`).join('')}</div></section>
+    ${p.lite?'<p class="pm-foot" style="--k:4">This overview covers the project’s scope and the technologies it builds on. Aneeq can walk you through implementation details on request.</p>':''}
+    <div class="pm-actions" style="--k:5">
+      <button class="btn btn-ghost btn-sm" type="button" data-close><i data-lucide="layout-grid"></i><span>All projects</span></button>
+      <span class="sp"></span>
+      <div class="pm-nav">
+        <button class="btn btn-ghost btn-sm" type="button" data-step="-1" aria-label="Previous project: ${esc(prev.short)}"><i data-lucide="arrow-left"></i><span>${esc(prev.short)}</span></button>
+        <button class="btn btn-ghost btn-sm" type="button" data-step="1" aria-label="Next project: ${esc(next.short)}"><span>${esc(next.short)}</span><i data-lucide="arrow-right"></i></button>
+      </div>
+      <a class="btn btn-primary btn-sm" href="${wa}" target="_blank" rel="noopener"><i data-lucide="message-circle"></i><span>Discuss this project</span></a>
+    </div>
+  </div>`;
+}
+function fillModal(p){
+  const box=$('#pm-scroll'); box.innerHTML=modalHTML(p); box.scrollTop=0; box.style.setProperty('--py','0px'); pmCur=p.id;
+  box.classList.remove('enter'); void box.offsetWidth; if(!RM) box.classList.add('enter');
+  flowSVG($('#pm-dg'),specOf(p),{key:'pm'+p.id}); icons();
+  try{ history.replaceState(null,'','#'+p.id); }catch(e){}
+}
+function openProject(id){
+  const p=PROJECTS.find(x=>x.id===id); if(!p) return;
+  const m=$('#pmodal'); if(!m.classList.contains('open')) pmLast=document.activeElement;
+  fillModal(p); m.classList.add('open'); document.body.classList.add('modal-open');
+  setTimeout(()=>{ const c=m.querySelector('.pm-close'); c&&c.focus(); },60);
+}
+function stepProject(d){ const i=PROJECTS.findIndex(p=>p.id===pmCur); fillModal(PROJECTS[(i+d+PROJECTS.length)%PROJECTS.length]); }
+function closeProject(){
+  const m=$('#pmodal'); if(!m||!m.classList.contains('open')) return;
+  m.classList.remove('open'); document.body.classList.remove('modal-open');
+  try{ history.replaceState(null,'','#projects'); }catch(e){}
+  if(pmLast&&pmLast.focus) pmLast.focus();
+}
+
 function renderCerts(){
   $('#certs-grid').innerHTML = CERTS.map((c,i)=>`
     <div class="cert" style="--i:${i}">
@@ -1351,7 +1626,7 @@ function downloadCV(){
 <style>body{font-family:Georgia,'Times New Roman',serif;max-width:820px;margin:40px auto;padding:0 24px;color:#1a1a1a;line-height:1.55}h1{font-size:2rem;margin-bottom:2px}h2{font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid #111;padding-bottom:5px;margin:30px 0 12px}h3{font-size:1rem;margin:14px 0 3px}.d{color:#666;font-size:.85rem;margin:0 0 6px}ul{margin:4px 0 8px 20px}li{margin-bottom:4px}.r{background:#edf3fd;border-left:3px solid #2f81f7;padding:7px 11px;font-size:.9rem}.top{color:#2f81f7;font-weight:600}.c{font-size:.9rem;color:#444}</style></head><body>
 <h1>Aneeq Imran</h1><p class="top">AI Engineer — Generative AI · Agentic AI · RAG · Intelligent Automation</p>
 <p class="c">Lahore, Pakistan · ${LINKS.email} · +92 309 8038433 · linkedin.com/in/aneeq-imran · github.com/ANEEQIMRAN-AI · cvlive-pearl.vercel.app</p>
-<h2>Summary</h2><p>AI Engineer focused on building practical AI solutions across Generative AI, Agentic AI, RAG and intelligent automation — designing LLM applications and multi-agent systems that deliver real productivity and operational value, with a commitment to responsible AI adoption.</p>
+<h2>Summary</h2><p>AI Engineer specializing in Generative AI, Agentic AI, Machine Learning, and Computer Vision. Experienced in developing LLM-powered applications, multi-agent systems, RAG pipelines, and intelligent automation solutions using Python, LangChain, LangGraph, CrewAI, and FastAPI. Focused on building scalable AI solutions for real-world applications.</p>
 <h2>Core Competencies</h2>${skills}
 <h2>Experience</h2>${xp}
 <h2>Projects</h2>${pr}
@@ -1420,22 +1695,22 @@ XP.forEach(x=>pushK('experience',`${x.role} — ${x.co}`,
   [x.co.toLowerCase(),...x.role.toLowerCase().replace(/[|/]/g,' ').split(/\s+/).filter(w=>w.length>2),'experience','role','job','work','intern','internship','trainee','company','netsol','symtera','mind','rind'],
   `${x.role} at ${x.co}, ${x.loc} (${x.date}). ${x.pts.join(' ')}`));
 pushK('experience','Experience overview',['experience','roles','jobs','career','worked','history','timeline'],
-  'Aneeq has held three roles: AI/ML Trainee at NETSOL IT Village in Lahore (Sep 2026 – Present); Associate AI Engineer | AI Intern at Symtera Technologies in Lahore (Jan 2026 – July 2026); and Generative AI Intern at Mind Rind in Lahore (Jun 2025 – Aug 2025).');
+  'Aneeq has held three roles: AI/ML Trainee at NETSOL IT Village in Lahore (Sep 2026 – Present); AI Intern at Symtera Technologies in Lahore (Jan 2026 – Jul 2026); and Generative AI Intern at Mind Rind in Lahore (Jun 2025 – Aug 2025).');
 PROJECTS.forEach(p=>pushK('project',p.title,
   [...p.title.toLowerCase().replace(/[&|]/g,' ').split(/\s+/).filter(w=>w.length>2),...p.tech.map(t=>t.toLowerCase()),'project','built','system','platform'],
   `${p.title}. ${p.tag}. ${p.pts.join(' ')} Technologies: ${p.tech.join(', ')}. ${p.metric||''}`));
 pushK('project','All projects',['projects','built','portfolio','showcase','work','made','ai projects'],
-  'Aneeq has built four major AI projects: 1) LinkedIn Lead Generation & Outreach Automation — multi-agent LangGraph platform with Claude Sonnet, LLaMA, Playwright and n8n. 2) AI Resume Screening & Candidate Matching System — RAG with the Gemini API on a FastAPI, PostgreSQL and React stack, cutting manual screening time by about 70%. 3) Writely.AI — RAG writing platform with OpenAI, Gemini, LLaMA, web search and LangGraph. 4) Surface Area Measurement of Irregular Leather — OpenCV, Flutter and PyQt5, up to 97% accuracy, deployed at Siddique Leather Works.');
+  `Aneeq's portfolio has ${PROJECTS.length} projects: `+PROJECTS.map((p,i)=>`${i+1}) ${p.title} (${p.cat})`).join('; ')+'.');
 pushK('education','Education',['education','university','uet','degree','bachelor','cgpa','gpa','study','studied','computer','engineering','academic','lahore'],
   'Aneeq holds a Bachelor of Science in Computer Engineering from the University of Engineering and Technology (UET), Lahore, Pakistan (2021 – 2025), with a CGPA of 3.45.');
 pushK('certs','Certifications overview',['certification','certifications','certificate','certs','courses','credentials'],
-  'Aneeq holds 7 certifications: '+CERTS.map(c=>`${c.name} — ${c.org} (${c.yr})`).join('; ')+'.');
+  'Aneeq holds '+CERTS.length+' certifications: '+CERTS.map(c=>`${c.name} — ${c.org} (${c.yr})`).join('; ')+'.');
 CERTS.forEach(c=>pushK('certs',c.name,[...c.name.toLowerCase().split(/\s+/).filter(w=>w.length>2),c.org.toLowerCase(),'certification'],
   `${c.name} — issued by ${c.org} in ${c.yr}. It is one of Aneeq's ${CERTS.length} verified certifications.`));
 pushK('contact','Contact & links',['contact','email','whatsapp','phone','number','linkedin','github','portfolio','reach','hire','connect','message','social','touch'],
   'Email: aneeqimran.ai@gmail.com. WhatsApp: +92 309 8038433. LinkedIn: linkedin.com/in/aneeq-imran. GitHub: ANEEQIMRAN-AI. Portfolio: cvlive-pearl.vercel.app.');
 pushK('project','RAG experience',['rag','retrieval','augmented','embeddings','vector','semantic'],
-  "Aneeq's RAG experience spans his core skills and two major projects: the AI Resume Screening & Candidate Matching System (embeddings + RAG with the Gemini API for match scoring and skill-gap analysis) and Writely.AI (RAG with document parsing, vector search, web search and citation-aware responses).");
+  "Aneeq's RAG experience spans his core skills and major projects including the AI Resume Screening & Candidate Matching System (embeddings + RAG with the Gemini API for match scoring and skill-gap analysis) and Writely.AI (RAG with document parsing, vector search, web search and citation-aware responses).");
 
 /* vectorizer: TF-IDF over chunks */
 const STOP=new Set('a an the is are was were of in on and or to for with he his him her about tell me what how do does did you your i my can could would should has have had be been it that this at by from as all there their which who whom them they then than so if not no yes also very much more most some any'.split(' '));
@@ -1453,7 +1728,7 @@ const SYN={
   languages:['python','java','javascript','sql'],language:['python','java','javascript','sql'],
   automation:['automation','n8n','playwright'],scraping:['scraping','beautifulsoup','playwright'],scrape:['scraping','playwright'],
   leather:['leather','opencv','vision','hikvision'],camera:['camera','opencv','hikvision'],cameras:['camera','opencv','hikvision'],vision:['opencv','computer','vision'],
-  essay:['writely','essay','thesis'],thesis:['writely','thesis'],paper:['writely','research'],papers:['writely','research'],writing:['writely'],writer:['writely'],
+  essay:['scholarly','essay','thesis'],thesis:['scholarly','thesis'],paper:['scholarly','research'],papers:['scholarly','research'],writing:['scholarly'],writer:['scholarly'],
   outreach:['linkedin','outreach'],lead:['linkedin','lead','outreach'],leads:['linkedin','lead','outreach'],linkedin:['linkedin'],
   cert:['certification'],certs:['certification'],certificates:['certification'],courses:['certification'],course:['certification'],
   current:['current','present','netsol'],now:['current','netsol','present'],today:['current','netsol','present'],
@@ -1503,13 +1778,13 @@ A.summary=()=>{ ctx.kind='summary'; return {text:"**Aneeq Imran** is an AI Engin
 A.experienceFull=()=>{ ctx.kind='summary'; return {text:
 "Aneeq's complete AI experience — straight from the CV, no browsing required:\n\n"+
 XP.map(x=>`• **${x.role} — ${x.co} · ${x.loc}** (${x.date}${x.cur?' · current':''})\n  ${x.pts[0]}`).join('\n')+
-"\n\n**Education:** BS Computer Engineering, UET Lahore — CGPA 3.45\n**Certifications:** 7 (Anthropic, Google, Coursera, Databricks, AWS, Udacity, IBM)\n**Core stack:** Python · FastAPI · LangChain · LangGraph · CrewAI · RAG · Claude / GPT / Gemini / LLaMA\n\nWant me to expand any role, or dive into a specific project?",
+"\n\n**Education:** BS Computer Engineering, UET Lahore — CGPA 3.45\n**Certifications:** 8 (Anthropic, Google, Coursera, Databricks, AWS, Udacity, IBM)\n**Core stack:** Python · FastAPI · LangChain · LangGraph · CrewAI · RAG · Claude / GPT / Gemini / LLaMA\n\nWant me to expand any role, or dive into a specific project?",
 chips:[chipGo('View experience timeline','#experience'),chipQ('What AI projects has he built?'),chipQ('How can I contact him?')]};};
 A.projectsAll=()=>{ ctx.kind='projects'; return {text:
-"Here are all four projects from Aneeq's CV:\n\n"+
+"Here are all "+PROJECTS.length+" projects in Aneeq's portfolio:\n\n"+
 PROJECTS.map(p=>`• **${p.title}** — ${p.tag}. ${p.metric||''}`).join('\n')+
 "\n\nI can take you straight to any case study, or filter them by technology.",
-chips:[...PROJECTS.map(viewChip),chipQ('Show me projects involving RAG')]};};
+chips:[...PROJECTS.filter(p=>p.feat).map(viewChip),chipGo('Browse all projects','#projects'),chipQ('Show me projects involving RAG')]};};
 A.projectFilter=(tech)=>{
   ctx.kind='projects';
   const alias={llms:'llm',agents:'agent',agentic:'agent',agent:'agent',apis:'api',api:'api',rest:'api',vector:'rag',embeddings:'rag',embedding:'rag',retrieval:'rag',gpt:'openai',chatgpt:'openai',scraping:'playwright',automation:'n8n',postgres:'postgresql',db:'postgresql',database:'postgresql',vision:'opencv',camera:'opencv',cameras:'opencv',mobile:'flutter',frontend:'react',ui:'flutter'};
@@ -1517,14 +1792,16 @@ A.projectFilter=(tech)=>{
   const pretty={rag:'RAG',langgraph:'LangGraph',langchain:'LangChain',crewai:'CrewAI',fastapi:'FastAPI',playwright:'Playwright',opencv:'OpenCV',react:'React',postgresql:'PostgreSQL',python:'Python',openai:'OpenAI',gemini:'Gemini',llama:'LLaMA',n8n:'n8n',flutter:'Flutter',pyqt5:'PyQt5'};
   const label=pretty[t]||tech;
   const matches=PROJECTS.filter(p=>p.tech.some(x=>x.toLowerCase().includes(t))||(p.title+' '+p.tag+' '+p.pts.join(' ')+' '+p.tech.join(' ')).toLowerCase().includes(t));
-  if(!matches.length) return {text:`None of Aneeq's four CV projects specifically involve **${label}**. His verified project technologies are: Python, FastAPI, PostgreSQL, React, RAG, LangGraph, Playwright, OpenAI, Gemini, LLaMA, web search, OpenCV, Flutter and PyQt5.`,chips:[chipQ('What AI projects has he built?')]};
+  if(!matches.length) return {text:`None of Aneeq's projects specifically involve **${label}**. His verified project technologies are: ${[...new Set(PROJECTS.flatMap(p=>p.tech))].join(', ')}.`,chips:[chipQ('What AI projects has he built?')]};
   const chips=matches.map(viewChip);
   if(t==='rag') chips.push(chipGo('See the live RAG pipeline','#lab'));
   return {text:`Projects involving **${label}**:\n\n`+matches.map(p=>`• **${p.title}** — ${p.tag}.`).join('\n')+`\n\nI can take you straight to any of them.`,chips};};
 A.rag=()=>{ ctx.kind='projects'; return {text:
 "**RAG — Retrieval-Augmented Generation — is one of Aneeq's core competencies**, and it shows up across his work:\n\n"+
 "• **AI Resume Screening & Candidate Matching System** — embeddings + RAG with the **Gemini API** to semantically match candidates to job descriptions, with match scoring, skill-gap analysis and hiring recommendations.\n"+
-"• **Writely.AI** — RAG with document parsing, **vector search** and **web search**, producing **citation-aware** essays, reports, research papers and theses.\n"+
+"• **Scholarly Help** — RAG with document parsing, **vector search** and **web search**, producing **citation-aware** essays, reports, research papers and theses.\n"+
+"• **Institutional Policy RAG Assistant** — RAG over institutional policy documents with LLM-generated, context-aware answers.\n"+
+"• **RAG Conversational Chatbot** — a chatbot grounded in retrieved context from a vector database.\n"+
 "• **Skills** — RAG sits alongside Generative AI, Agentic AI, prompt engineering and multi-agent systems in his AI competencies.\n\n"+
 "There's also a live animated RAG pipeline in this portfolio's Architecture Lab.",
 chips:[chipGo('View the RAG pipeline','#lab'),chipGo('View Resume Screening','#proj-resume'),chipQ('Tell me about the LinkedIn automation project.')]};};
@@ -1537,7 +1814,7 @@ A.certs=(l)=>{
   const c=direct;
   if(c && /certificat|cert\b/.test(l) && c.name.toLowerCase().split(' ').some(w=>w.length>4&&l.includes(w)))
     return {text:`**${c.name}** — issued by **${c.org}** in **${c.yr}**.\n\nIt's one of Aneeq's ${CERTS.length} verified certifications.`,chips:[chipQ('What certifications does he have?'),chipGo('View credentials','#credentials')]};
-  return {text:"Aneeq holds **7 certifications**:\n\n"+CERTS.map(c=>`• **${c.name}** — ${c.org} (${c.yr})`).join('\n')+"\n\nSix from 2026 focus directly on AI — Anthropic, Google, Databricks and AWS — while the IBM RDBMS certification (2024) backs his database foundations.",
+  return {text:"Aneeq holds **8 certifications**:\n\n"+CERTS.map(c=>`• **${c.name}** — ${c.org} (${c.yr})`).join('\n')+"\n\nSeven from 2026 focus directly on AI — Anthropic, Google, Databricks and AWS — while the IBM RDBMS certification (2024) backs his database foundations.",
   chips:[chipGo('View credentials','#credentials'),chipQ('Tell me about Aneeq.')]};};
 A.edu=()=>{ ctx.kind='edu'; return {text:
 "Aneeq studied at the **University of Engineering and Technology (UET)**, Lahore, Pakistan.\n\n• **Degree:** Bachelor of Science in Computer Engineering\n• **Years:** 2021 – 2025\n• **CGPA:** 3.45",
@@ -1572,7 +1849,7 @@ A.more=()=>{
   if(ctx.kind==='certs') return A.certs('');
   if(ctx.kind==='edu') return A.edu();
   if(ctx.kind==='summary'||ctx.kind==='projects') return A.experienceFull();
-  return {text:"Happy to go deeper — which area?\n\n• His current role at NETSOL\n• Any of the four projects\n• His full tech stack\n• Certifications or education",chips:[chipQ('What is his current role?'),chipQ('What AI projects has he built?'),chipQ('What certifications does he have?')]};};
+  return {text:"Happy to go deeper — which area?\n\n• His current role at NETSOL\n• Any of the projects\n• His full tech stack\n• Certifications or education",chips:[chipQ('What is his current role?'),chipQ('What AI projects has he built?'),chipQ('What certifications does he have?')]};};
 A.retrieve=q=>{
   const res=retrieve(q);
   if(!res.length) return A.guard();
@@ -1601,7 +1878,7 @@ function answer(qRaw){
   if(/certificat|credentials?\b|\bcerts?\b/.test(l)) return A.certs(l);
   if(/education|university|degree|bachelor|\bcgpa\b|\bgpa\b|studied|studies|academic|uet/.test(l)) return A.edu();
   if(/download.*(cv|resume)|\bcv\b\s*file|get.*(cv|resume)/.test(l)) return A.dlcv();
-  if(/(contact|e-?mail|reach|phone|whatsapp|hire|connect|get in touch|touch|socials?|his\s+(linkedin|github|portfolio|number|email))/.test(l)&&!/(project|automation|outreach|agent|screening|writely|leather)/.test(l)) return A.contact();
+  if(/(contact|e-?mail|reach|phone|whatsapp|hire|connect|get in touch|touch|socials?|his\s+(linkedin|github|portfolio|number|email))/.test(l)&&!/(project|automation|outreach|agent|screening|writely|scholarly|leather)/.test(l)) return A.contact();
   if(/skill|technolog|stack|tools?\b|languages?\b|frameworks?\b|he\s+(use|uses|know)/.test(l)) return A.skills();
   if(/projects?\b/.test(l)&&/(built|build|made|show|list|what|his|has|portfolio|worked)/.test(l)) return A.projectsAll();
   if(/(who|about)\s+(is\s+)?(aneeq|imran)|tell me about (aneeq|him)\b/.test(l)||/^(aneeq|imran)[\s?]*$/.test(l)) return A.summary();
@@ -1684,6 +1961,7 @@ async function renderBot(ans,instant){
   icons(); scrollLog();
 }
 function goTo(sel,expand){
+  if(/^#proj-/.test(sel)){ openProject(sel.slice(1)); if(innerWidth<=640) closeChat(); return; }
   const t=document.querySelector(sel); if(!t)return;
   t.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});
   t.classList.remove('flash'); void t.offsetWidth; t.classList.add('flash');
@@ -1711,13 +1989,13 @@ function welcome(){
   renderBot({text:"Hi — I'm **Aneeq AI**, a retrieval-augmented assistant grounded in Aneeq's verified CV.\n\nAsk me anything about his experience, projects, skills, certifications or how to reach him — or start with a suggestion below."},true);
 }
 function openChat(auto){
-  chatbot.classList.add('open'); fab.classList.add('hidden','quiet');
+  chatbot.classList.add('open'); fab.classList.add('quiet','is-open'); fab.setAttribute('aria-label','Close Aneeq AI chatbot'); fab.querySelector('.f-t').textContent='Close chat';
   document.body.classList.remove('menu-open');
   if(!chatStarted){ chatStarted=true; welcome(); }
   if(auto) setTimeout(()=>chatSend(auto),400);
   else if(matchMedia('(pointer:fine)').matches) setTimeout(()=>chatText.focus(),350);
 }
-function closeChat(){ chatbot.classList.remove('open'); fab.classList.remove('hidden'); }
+function closeChat(){ chatbot.classList.remove('open'); fab.classList.remove('hidden','is-open'); fab.setAttribute('aria-label','Open Aneeq AI chatbot'); fab.querySelector('.f-t').textContent='Ask Aneeq AI'; }
 fab.addEventListener('click',()=>chatbot.classList.contains('open')?closeChat():openChat());
  $('#chat-close').addEventListener('click',closeChat);
  $('#hero-ask').addEventListener('click',()=>openChat('Tell me about Aneeq.'));
@@ -1739,6 +2017,54 @@ document.addEventListener('click',e=>{
   openChat(b.dataset.q);
 });
 
+/* ---------------- EXTRA MOTION & MEDIA ---------------- */
+const PMEDIA={flex:['flex.webp','center 40%','dumbbell'],linkedin:['linkedin.webp','center','linkedin'],scholarly:['scholarly.webp','center 35%','graduation-cap'],
+  potato:['potato.webp','center','sprout'],xray:['xray.webp','center','heart-pulse'],policy:['policy.webp','center','file-search'],deepfake:['deepfake.webp','center 38%','scan-face'],
+  security:['security.webp','center','cctv'],yolo11:['yolo11.webp','center 40%','crosshair'],apple:['apple.webp','center','chart-candlestick'],bizagent:['bizagent.webp','center','briefcase-business'],
+  ragbot:['ragbot.webp','center','bot-message-square'],leather:['leather.webp','center','ruler'],social:['social.webp','center','share-2'],agents:['agents.webp','center','network'],resume:['resume.webp','center','file-user']};
+PROJECTS.forEach(p=>{ const m=PMEDIA[p.id.replace('proj-','')]; if(!m) return; if(m[0]){ p.img='img/'+m[0]; p.pos=m[1]; } p.ic=m[2]; });
+
+function heroFail(el,ic){ const h=el.closest('.pm-hero'); if(!h) return; const d=document.createElement('div'); d.className='pm-hero gen'; d.style.cssText=h.getAttribute('style'); d.setAttribute('aria-hidden','true'); d.innerHTML='<i data-lucide="'+ic+'"></i>'; h.replaceWith(d); icons(); }
+function openLB(src,alt){ const lb=$('#lb'); lb.querySelector('img').src=src; lb.querySelector('img').alt=alt||''; lb.classList.add('open'); lb.querySelector('button').focus(); }
+function closeLB(){ $('#lb').classList.remove('open'); }
+function initFX(){
+  document.documentElement.classList.add('js-fx');
+  /* lightbox */
+  const lb=document.createElement('div'); lb.id='lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-label','Project image, full size');
+  lb.innerHTML='<img alt=""><button type="button" aria-label="Close image"><i data-lucide="x"></i></button>'; document.body.appendChild(lb);
+  lb.addEventListener('click',closeLB);
+  addEventListener('keydown',e=>{ if(e.key==='Escape'&&lb.classList.contains('open')){ e.stopImmediatePropagation(); closeLB(); } },true);
+  /* hero orbs */
+  const hero=$('#home'); if(hero&&!RM){ ['o1','o2','o3'].forEach(c=>{ const o=document.createElement('div'); o.className='orb '+c; o.setAttribute('aria-hidden','true'); hero.insertBefore(o,hero.firstChild); }); }
+  /* reverse tech marquee */
+  const mq=$('.marquee'); if(mq){ const techs=[...new Set(PROJECTS.flatMap(p=>p.tech))].map(t=>t.toUpperCase()); const row=techs.join('<b>//</b>')+'<b>//</b>';
+    const m2=document.createElement('div'); m2.className='marquee rev'; m2.setAttribute('aria-hidden','true'); m2.innerHTML=`<div class="mq-track"><div class="mq">${row}</div><div class="mq">${row}</div></div>`; mq.after(m2); }
+  /* badge stagger indices */
+  $$('.sk-items').forEach(g=>[...g.children].forEach((b,i)=>b.style.setProperty('--bi',i)));
+  /* timeline draw */
+  const xp=$('#xp-wrap'); if(xp&&'IntersectionObserver' in window){ const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ xp.classList.add('drawn'); io.disconnect(); } }),{threshold:.1}); io.observe(xp); } else if(xp) xp.classList.add('drawn');
+  /* spotlight + tilt */
+  const SPOT='.pc,.sk-card,.xcard,.lab-panel,.edu-card';
+  document.addEventListener('pointermove',e=>{
+    if(e.pointerType==='touch'||!e.target.closest) return; const c=e.target.closest(SPOT); if(!c) return;
+    const r=c.getBoundingClientRect(); c.style.setProperty('--mx',(e.clientX-r.left)+'px'); c.style.setProperty('--my',(e.clientY-r.top)+'px');
+    if(!RM&&c.classList.contains('pc')){ const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      c.style.setProperty('--ry',(x*9).toFixed(2)+'deg'); c.style.setProperty('--rx',(-y*9).toFixed(2)+'deg'); c.classList.add('tilting'); }
+  },{passive:true});
+  document.addEventListener('pointerout',e=>{ const c=e.target.closest&&e.target.closest('.pc'); if(c&&!c.contains(e.relatedTarget)){ c.style.removeProperty('--rx'); c.style.removeProperty('--ry'); c.classList.remove('tilting'); } });
+  /* button ripple */
+  document.addEventListener('pointerdown',e=>{ const b=e.target.closest&&e.target.closest('.btn'); if(!b||RM) return; const r=b.getBoundingClientRect(), d=Math.max(r.width,r.height)*2;
+    const s=document.createElement('span'); s.className='rip'; s.style.cssText=`width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px`; b.appendChild(s); setTimeout(()=>s.remove(),700); });
+  /* section curtain transition on in-page navigation */
+  if(!RM){ const cu=document.createElement('div'); cu.id='curtain'; cu.setAttribute('aria-hidden','true'); document.body.appendChild(cu); let busy=false;
+    document.addEventListener('click',e=>{ const a=e.target.closest&&e.target.closest('.nav-links a,.m-menu a,.hero-cta a[href^="#"],.brand'); if(!a||busy) return;
+      const id=a.getAttribute('href'); if(!id||id[0]!=='#') return; const t=id==='#home'?document.body:document.querySelector(id); if(!t) return;
+      const top=id==='#home'?0:t.getBoundingClientRect().top+scrollY-70; if(Math.abs(top-scrollY)<innerHeight*.8) return;
+      e.preventDefault(); busy=true; document.body.classList.remove('menu-open'); cu.className='in';
+      setTimeout(()=>{ scrollTo({top,behavior:'instant'}); history.replaceState(null,'',id); cu.className='out'; setTimeout(()=>{ cu.className=''; busy=false; },600); },580); }); }
+  icons();
+}
+
 /* =====================================================================
    INIT — render every dynamic section FIRST, then bind the reveal
    system, then run safety checks. Each renderer is individually guarded
@@ -1754,6 +2080,7 @@ try{ flowSVG($('#dg-rag'),DIAG.rag,{key:'rag',caption:'#cap-rag',desc:DIAG.rag.d
 try{ flowSVG($('#dg-agent'),DIAG.agent,{key:'ag',caption:'#cap-agent',desc:DIAG.agent.desc}); }catch(e){ console.warn('agent diagram failed:', e); }
 icons();
 /* bind reveals AFTER all content exists — this is the critical ordering fix */
+try{ initFX(); }catch(e){ console.warn('fx failed:',e); }
 bindReveals();
 requestAnimationFrame(revealCheck);
 setTimeout(revealCheck,1200);
